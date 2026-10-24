@@ -1,0 +1,29 @@
+{
+  "project": "GocDanSinh",
+  "step": 9,
+  "source_of_truth": "SQL Server database GocDanSinh",
+  "purpose": "Reference manifest only. Runtime data belongs in dbo.knowledge_item, dbo.knowledge_version, dbo.knowledge_item_link, dbo.knowledge_source_candidate.",
+  "editorial_status": "draft",
+  "source_status": "pending_review",
+  "do_not_publish": true,
+  "scenarios": [
+    {
+      "name": "Unemployment benefit: link law and administrative procedure",
+      "business_codes": ["GDS-MVP-LEGAL-BHTN", "GDS-MVP-ADMIN-TCTN"],
+      "links": [
+        "https://congbao.chinhphu.vn/van-ban/luat-so-74-2025-qh15-45562.htm",
+        "https://vpcp.dichvucong.gov.vn/p/home/dvc-chi-tiet-thu-tuc-hanh-chinh.html?ma_thu_tuc=1.014748"
+      ],
+      "verification_needed": "Check exact conditions, required documents, submission methods, applicability and currency of legal text."
+    },
+    {
+      "name": "Potential fake social-insurance call demanding money",
+      "business_codes": ["GDS-MVP-SCAM-MAODANH-BHXH"],
+      "links": [
+        "https://baohiemxahoi.gov.vn/tintuc/Pages/hoat-dong-he-thong-bao-hiem-xa-hoi.aspx?CateID=52&ItemID=25391",
+        "https://baohiemxahoi.gov.vn/tintuc/Pages/hoat-dong-he-thong-bao-hiem-xa-hoi.aspx?CateID=52&itemID=24971"
+      ],
+      "verification_needed": "Check official warning wording and publication context; do not assert any specific caller is a scammer."
+    }
+  ]
+}

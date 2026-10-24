@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+coverage/
+*.log
+*.bak
+*.mdf
+*.ldf
+
+# Pending RSS metadata (local only)
+data/source_sync/
+
+sql/.vs/
+*.ssmssln
+*.suo
+sql/Tao_Tai_Khoan_*.sql

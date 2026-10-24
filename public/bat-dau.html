@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Bắt đầu tra cứu | Góc Dân Sinh</title>
+  <meta name="description" content="Tra cứu nội dung dân sinh đã được kiểm duyệt và tìm đường dẫn tới các cổng thông tin chính thức.">
+  <link rel="stylesheet" href="./css/gds-start.css">
+  <script src="./js/gds-start.js" defer></script>
+<link rel="stylesheet" href="./css/gds-chat.css">
+</head>
+<body>
+<header class="header"><div class="wrap bar"><a class="brand" href="./">Góc Dân Sinh</a><nav aria-label="Điều hướng"><a href="./thu-tuc-hanh-chinh.html">Thủ tục</a><a href="./tim-kiem-tri-thuc.html">Tra cứu</a><a href="./tro-ly-ai.html">Trợ lý</a></nav></div></header>
+<main class="wrap">
+  <div class="intro"><p class="eyebrow">CỔNG TRA CỨU CỘNG ĐỒNG · PHI LỢI NHUẬN</p><h1>Bắt đầu sử dụng Góc Dân Sinh</h1><p>Chọn nhu cầu của bạn. Chỉ kết quả đã được kiểm duyệt, có chứng cứ còn hiệu lực và đã công bố mới được trả về từ kho dữ liệu công khai.</p></div>
+  <section class="status" aria-label="Trạng thái kho dữ liệu">
+    <div id="publicStatus" role="status" aria-live="polite">Đang kiểm tra kết nối và nội dung được công bố…</div>
+    <div class="counts" id="publicCounts" hidden><div><strong id="countLegal">—</strong><span>Pháp luật</span></div><div><strong id="countAdmin">—</strong><span>Thủ tục</span></div><div><strong id="countScam">—</strong><span>Cảnh báo</span></div></div>
+  </section>
+  <div class="cards" aria-label="Chức năng chính">
+    <article class="card"><span class="symbol">⚖</span><h2>Pháp luật và quyền lợi</h2><p>Tìm nội dung pháp lý đã phát hành, có nguồn đối chiếu.</p><a href="./phap-luat-quyen-loi.html">Mở chuyên mục <span aria-hidden="true">→</span></a></article>
+    <article class="card"><span class="symbol">▤</span><h2>Thủ tục hành chính</h2><p>Chọn tỉnh, thành phố và xem thủ tục đã đủ điều kiện công bố.</p><a href="./thu-tuc-hanh-chinh.html">Tra cứu thủ tục <span aria-hidden="true">→</span></a></article>
+    <article class="card"><span class="symbol">!</span><h2>Cảnh báo lừa đảo</h2><p>Tìm cảnh báo đã được kiểm chứng, ưu tiên bảo vệ thông tin cá nhân.</p><a href="./canh-bao-lua-dao.html">Xem cảnh báo <span aria-hidden="true">→</span></a></article>
+  </div>
+  <section class="panel" aria-labelledby="findTitle"><h2 id="findTitle">Tra cứu nhanh nội dung đã công bố</h2>
+    <form id="quickSearch" autocomplete="off"><label for="question">Nhập câu hỏi hoặc từ khóa</label><textarea id="question" maxlength="240" minlength="2" rows="2" required placeholder="Ví dụ: Hồ sơ hưởng trợ cấp thất nghiệp"></textarea><div class="form-row"><label for="domain">Phạm vi <select id="domain"><option value="ALL">Tất cả lĩnh vực</option><option value="LEGAL">Pháp luật</option><option value="ADMIN">Thủ tục</option><option value="SCAM">Cảnh báo lừa đảo</option></select></label><button type="submit" id="findButton">Tìm nội dung</button></div></form>
+    <div id="searchStatus" role="status" aria-live="polite"></div><div id="searchResults" class="search-results" aria-live="polite"></div>
+  </section>
+  <section class="panel" aria-labelledby="locationTitle"><h2 id="locationTitle">Tra cứu theo địa phương</h2><p>Chọn địa phương để mở trang thủ tục. Việc chọn tỉnh không đồng nghĩa nơi tiếp nhận đã được xác minh.</p><div class="form-row"><label for="province">Tỉnh/thành phố <select id="province"><option value="">Toàn quốc</option></select></label><a id="procedureLink" class="btn secondary" href="./thu-tuc-hanh-chinh.html">Xem thủ tục theo địa phương</a></div><p class="muted" id="provinceStatus" role="status">Đang tải danh mục…</p></section>
+  <section class="panel sources" aria-labelledby="sourcesTitle"><h2 id="sourcesTitle">Nguồn chính thức khi chưa có kết quả trên Góc Dân Sinh</h2><p>Đây là các đường dẫn truy cập trực tiếp tới cổng của cơ quan nhà nước, không phải nội dung đã được Góc Dân Sinh xác minh và công bố.</p><div class="source-links"><a href="https://dichvucong.gov.vn/" target="_blank" rel="noopener noreferrer">Cổng Dịch vụ công Quốc gia ↗</a><a href="https://vbpl.vn/" target="_blank" rel="noopener noreferrer">Cơ sở dữ liệu văn bản pháp luật ↗</a><a href="https://congbao.chinhphu.vn/" target="_blank" rel="noopener noreferrer">Cổng Công báo Chính phủ ↗</a><a href="https://baohiemxahoi.gov.vn/" target="_blank" rel="noopener noreferrer">Bảo hiểm xã hội Việt Nam ↗</a></div></section>
+  <section class="note"><strong>Lưu ý khi sử dụng</strong><p>Trang này không hiển thị bản nháp, metadata RSS đang chờ kiểm duyệt hoặc hồ sơ chưa được xác minh. Trợ lý AI cũng không được phép tự tạo kết luận pháp luật khi thiếu chứng cứ. Không gửi OTP, mật khẩu, CCCD hoặc dữ liệu riêng tư.</p><p><a href="./tro-ly-ai.html">Hỏi trợ lý theo dữ liệu đã duyệt →</a> · <a href="./login.html">Đăng nhập nội bộ</a></p></section>
+</main>
+<footer>Góc Dân Sinh · Phục vụ cộng đồng, phi lợi nhuận · Thông tin không thay thế cơ quan có thẩm quyền.</footer>
+<script defer src="./js/gds-chat.js"></script>
+</body>
+</html>

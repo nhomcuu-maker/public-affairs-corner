@@ -1,0 +1,32 @@
+﻿name: Deploy public to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Chuan bi thu muc site
+        run: |
+          mkdir _site
+          cp -r public/. _site/
+          cd _site
+          rm -f admin.html login.html register.html kiem-tra-ban-nhap.html kiem-tra-he-thong.html mvp-noi-bo.html nguon-cong-bao-noi-bo.html phan-hoi-noi-bo.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - Góc Dân Sinh</title>
+    <!-- FontAwesome cho icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .register-card {
+            background: #ffffff;
+            padding: 40px 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .register-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .register-subtitle {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+            font-size: 16px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: #3182ce;
+        }
+
+        /* Nút Đăng ký bấm chuyển về trang chủ */
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #2b6cb0;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #2c5282;
+        }
+
+        .back-login {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #718096;
+        }
+
+        .back-login a {
+            color: #2b6cb0;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back-login a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/gds-live.css">
+</head>
+<body>
+
+    <div class="register-card">
+        <h2 class="register-title">ĐĂNG KÝ</h2>
+        <p class="register-subtitle">Tạo tài khoản mới</p>
+
+        <!-- Form chứa action="index.html" để tự động quay về trang chủ khi bấm Đăng ký -->
+        <form id="registerForm">
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="displayName" placeholder="Họ và tên / Tên tài khoản" autocomplete="name" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" name="email" placeholder="Địa chỉ Email" autocomplete="email" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" placeholder="Mật khẩu (ít nhất 12 ký tự)" minlength="12" autocomplete="new-password" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-shield-halved"></i>
+                <input type="password" name="confirmPassword" placeholder="Xác nhận mật khẩu" minlength="12" autocomplete="new-password" required>
+            </div>
+
+            <!-- NÚT ĐĂNG KÝ CHUYỂN VỀ TRANG CHỦ -->
+            <button type="submit" class="btn-submit">Đăng ký</button>
+        </form>
+        <p data-auth-status role="status" aria-live="polite" style="font-size:13px;margin-top:12px"></p>
+        <p style="font-size:12px;color:#64748b;margin-top:8px">Tài khoản mới chưa có quyền biên tập hoặc quản trị.</p>
+
+        <div class="back-login">
+            Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a>
+        </div>
+    </div>
+
+    <script defer src="./js/gds-live.js"></script>
+    <script defer src="./js/gds-auth.js"></script>
+</body>
+</html>

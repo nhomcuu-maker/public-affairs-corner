@@ -1,0 +1,53 @@
+{
+  "items": [
+    {
+      "title": "Giả danh công an, cơ quan nhà nước và đe dọa chuyển tiền",
+      "category": "impersonation",
+      "searchText": "công an giả danh tống tiền bắt cóc online",
+      "url": "https://www.bocongan.gov.vn/bai-viet/canh-bao-toi-pham-lua-dao-bang-thu-doan-tong-tien-truc-tuyen-1764129007",
+      "origin": "official_reference"
+    },
+    {
+      "title": "Cảnh báo lừa đảo tuyển sinh đại học",
+      "category": "jobs",
+      "searchText": "tuyển sinh học tập giả danh đại học",
+      "url": "https://hvcsnd.bocongan.gov.vn/canh-bao-lua-dao-tuyen-sinh-dai-hoc-12988",
+      "origin": "official_reference"
+    },
+    {
+      "title": "Cảnh báo lừa đảo đầu tư qua nhóm chat chứng khoán",
+      "category": "investments",
+      "searchText": "đầu tư chứng khoán tài chính nhóm chat",
+      "url": "https://bocongan.gov.vn/bai-viet/canh-bao-thu-doan-lua-dao-thong-qua-cac-hoi-nhom-nhom-chat-dau-tu-chung-khoan-d2-t38878",
+      "origin": "official_reference"
+    },
+    {
+      "title": "Cảnh báo giả mạo trên mạng xã hội, chiêu trò tặng quà",
+      "category": "social",
+      "searchText": "mạo danh mạng xã hội quà tặng lừa đảo",
+      "url": "https://bocongan.gov.vn/tin-tuc-su-kien/tin-an-ninh-trat-tu/canh-giac-mao-danh-nhan-vien-dien-may-xanh--de-lua-dao-d22-t45623.html",
+      "origin": "official_reference"
+    },
+    {
+      "title": "Cảnh báo tin nhắn phạt nguội có liên kết giả mạo",
+      "category": "phishing",
+      "searchText": "website giả phishing liên kết đường link phạt nguội",
+      "url": "https://www.bocongan.gov.vn/bai-viet/canh-bao-thu-doan-gia-danh-co-quan-cong-an-gui-tin-nhan-phat-nguoi-kem-duong-link-gia-mao-de-lua-dao-chiem-doat-tai-san-1788945012",
+      "origin": "official_reference"
+    },
+    {
+      "title": "Cảnh báo giả mạo thủ tục, dịch vụ công để chiếm đoạt thông tin",
+      "category": "public-services",
+      "searchText": "dịch vụ công giả mạo hồ sơ đất đai vay tiền",
+      "url": "https://www.bocongan.gov.vn/bai-viet/phu-tho-canh-bao-thu-doan-gia-danh-can-bo-xa-de-lua-lay-thong-tin-ca-nhan-vay-tien-truc-tuyen-1786691661",
+      "origin": "official_reference"
+    },
+    {
+      "title": "25 kịch bản lừa đảo trên không gian mạng năm 2026",
+      "category": "general",
+      "searchText": "lừa đảo tuyển dụng việc nhẹ lương cao deepfake đầu tư phishing",
+      "url": "https://www.bocongan.gov.vn/bai-viet/nang-cao-canh-giac-truoc-25-kich-ban-lua-dao-tren-khong-gian-mang-nam-2026-1788865614",
+      "origin": "official_reference"
+    }
+  ]
+}

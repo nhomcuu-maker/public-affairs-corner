@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pháp Luật & Quyền Lợi - Góc Dân Sinh</title>
+    <!-- FontAwesome cho Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --highlight-yellow: #fef08a;
+            --yellow-border: #fde047;
+            --yellow-text: #854d0e;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- PHẦN BANNER HERO CỐ ĐỊNH PHỦ TRÀN HEADER & TASKBAR --- */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Lớp chứa ảnh banner nằm lùi phía sau và làm mờ sâu */
+        .banner-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .banner-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9) blur(7px);
+            transform: scale(1.08);
+        }
+
+        /* Lớp phủ mờ nhẹ giúp màu sắc tự nhiên */
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            z-index: 2;
+        }
+
+        /* Lớp chứa nội dung trên Banner */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* --- 1. HEADER LOGO --- */
+        .top-header {
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .logo-placeholder {
+            width: 45px;
+            height: 45px;
+            background-color: #2b6cb0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 11px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .site-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1a365d;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 3px rgba(255,255,255,0.9);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .lang-select {
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid #a0aec0;
+            background-color: rgba(255, 255, 255, 0.9);
+            outline: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .auth-links a {
+            color: #1a365d;
+            font-weight: 700;
+            text-shadow: 0 1px 3px rgba(255,255,255,0.9);
+            transition: color 0.2s;
+        }
+
+        .auth-links a:hover {
+            color: #2b6cb0;
+            text-decoration: underline;
+        }
+
+        /* --- NAVBAR TASKBAR VỚI MEGAMENU / DROPDOWN --- */
+        .navbar {
+            background-color: rgba(163, 194, 240, 0.6);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-item {
+            position: relative;
+            padding: 12px 0;
+        }
+
+        .nav-item > a {
+            color: #0f2b48;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-item:hover > a {
+            color: #000;
+            background-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        /* Khung Menu Xổ Xuống (Dropdown) */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background-color: #ffffff;
+            min-width: 240px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background-color: #ffffff;
+            border-left: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            color: #2d3748;
+            font-size: 13.5px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a i {
+            color: #3182ce;
+            font-size: 12px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+            padding-left: 24px;
+        }
+
+        /* SEARCH CONTAINER TRÊN BANNER */
+        .search-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 0;
+        }
+
+        .search-box-legal {
+            display: flex;
+            width: 60%;
+            max-width: 650px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .search-box-legal input {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            background: transparent;
+            color: #1e293b;
+        }
+
+        .search-box-legal button {
+            background-color: transparent;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            color: #2b6cb0;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .search-box-legal button:hover {
+            color: var(--primary-blue);
+        }
+
+        /* --- 2. BREADCRUMB --- */
+        .breadcrumb-bar {
+            background: linear-gradient(90deg, #dbeafe, #eff6ff);
+            padding: 12px 8%;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--secondary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #bfdbfe;
+        }
+
+        .breadcrumb-bar a {
+            color: var(--primary-blue);
+            transition: color 0.2s;
+        }
+
+        .breadcrumb-bar a:hover {
+            color: var(--secondary-blue);
+        }
+
+        /* --- 3. MAIN CONTAINER --- */
+        .main-container {
+            max-width: 1100px;
+            margin: 35px auto 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Bố cục 2 Cột (Cột Danh Mục - Cột Nội Dung Law) */
+        .law-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        /* --- CỘT TRÁI: DANH MỤC --- */
+        .sidebar-category {
+            background: #ffffff;
+            padding: 24px 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            position: sticky;
+            top: 90px;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .category-btn {
+            background-color: #f1f5f9;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+            color: #ffffff;
+            border-color: var(--secondary-blue);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+            transform: translateX(4px);
+        }
+
+        /* --- CỘT PHẢI: CHI TIẾT VĂN BẢN PHÁP LUẬT --- */
+        .law-content-area {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+        }
+
+        .law-main-heading {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .law-title-sample {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Khung màu vàng: Tóm tắt & Ví dụ */
+        .yellow-box {
+            background-color: var(--highlight-yellow);
+            border: 1px solid var(--yellow-border);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 25px;
+            color: var(--yellow-text);
+            font-size: 15px;
+            line-height: 1.6;
+            box-shadow: 0 2px 10px rgba(254, 240, 138, 0.4);
+        }
+
+        .yellow-box strong {
+            color: #713f12;
+            font-weight: 800;
+        }
+
+        /* Khung Nội dung văn bản luật */
+        .law-document-body {
+            border: 2px dashed #cbd5e1;
+            border-radius: 16px;
+            padding: 35px 25px;
+            margin-bottom: 25px;
+            background-color: #fafafa;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #334155;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .law-document-body h4 {
+            font-size: 17px;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .law-document-body ul {
+            padding-left: 20px;
+        }
+
+        .law-document-body li {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive màn hình nhỏ */
+        @media (max-width: 850px) {
+            .law-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-category {
+                position: static;
+            }
+            .search-box-legal {
+                width: 85%;
+            }
+        }
+
+        /* --- 4. TRỢ LÝ AI & THANH THÔNG BÁO CHẠY RA/VÀO --- */
+        .ai-assistant-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .ai-floating-banner {
+            background: #ffffff;
+            color: #0f172a;
+            padding: 12px 20px;
+            border-radius: 30px 8px 30px 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            font-size: 13px;
+            font-weight: 700;
+            white-space: nowrap;
+            margin-right: 12px;
+            border: 1px solid #bfdbfe;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: slideInOut 8s infinite ease-in-out;
+            transform-origin: right center;
+        }
+
+        .ai-floating-banner i {
+            color: #22c55e;
+            font-size: 15px;
+        }
+
+        .ai-btn-wrapper {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .ai-btn {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border: 2px solid #93c5fd;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .ai-btn i {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+
+        .ai-btn span {
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .online-badge {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 14px;
+            height: 14px;
+            background-color: #22c55e;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+        }
+
+        .ai-btn-wrapper:hover .ai-btn {
+            transform: scale(1.08) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5);
+        }
+
+        @keyframes slideInOut {
+            0% { opacity: 0; transform: translateX(20px) scale(0.9); }
+            8%, 92% { opacity: 1; transform: translateX(0) scale(1); }
+            100% { opacity: 0; transform: translateX(20px) scale(0.9); }
+        }
+
+        /* Cửa sổ Chatbot AI */
+        .chat-modal {
+            display: none;
+            position: fixed;
+            bottom: 105px;
+            right: 30px;
+            width: 360px;
+            height: 480px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 1px solid #e2e8f0;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1001;
+            animation: popupFade 0.3s ease;
+        }
+
+        @keyframes popupFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .close-chat {
+            cursor: pointer;
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .msg {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .msg-ai {
+            background: #ffffff;
+            color: #1e293b;
+            border: 1px solid #e2e8f0;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+
+        .chat-footer {
+            padding: 12px;
+            background: #fff;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 8px;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 20px;
+            outline: none;
+            font-size: 13px;
+        }
+
+        .chat-footer button {
+            background: var(--secondary-blue);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* --- 5. FOOTER --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/gds-live.css">
+<link rel="stylesheet" href="./css/gds-chat.css">
+<link rel="stylesheet" href="./js/gds-library.css">
+<link rel="stylesheet" href="./css/gds-redesign.css">
+</head>
+<body>
+
+    <!-- KHU VỰC HERO BANNER MỜ PHỦ TRÀN HEADER & TASKBAR -->
+    <div class="hero-section">
+        <!-- Ảnh banner mờ mịn làm nền -->
+        <div class="banner-bg">
+            <img src="ảnh banner.jpg" alt="Hero Banner">
+        </div>
+        <!-- Lớp phủ mờ nhẹ -->
+        <div class="banner-overlay"></div>
+
+        <!-- Nội dung nổi đè lên banner -->
+        <div class="hero-content">
+            <!-- 1. HEADER LOGO -->
+            <header class="top-header">
+                <div class="logo-section" onclick="location.href='index.html'">
+                    <div class="logo-placeholder">GDS</div>
+                    <div class="site-title">GÓC DÂN SINH</div>
+                </div>
+                <div class="header-actions">
+                    <select class="lang-select">
+                        <option value="vi">Tiếng Việt</option>
+                        <option value="en">English</option>
+                    </select>
+                    <div class="auth-links">
+                        <a href="login.html">Đăng nhập</a> | <a href="register.html">Đăng ký</a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- NAVBAR CỐ ĐỊNH TÍCH HỢP DROPDOWN MENU -->
+            <nav class="navbar">
+                <div class="nav-item">
+                    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+                </div>
+
+                <!-- MỤC 1: GIỚI THIỆU -->
+                <div class="nav-item">
+                    <a href="#">GIỚI THIỆU <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="alert('Xem: Tổng quan về GÓC DÂN SINH')">
+                            <i class="fa-solid fa-circle-info"></i> Tổng quan về GÓC DÂN SINH
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MỤC 2: THÔNG TIN DÂN SINH -->
+                <div class="nav-item">
+                    <a href="#">THÔNG TIN DÂN SINH <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="phap-luat-quyen-loi.html">
+                            <i class="fa-solid fa-scale-balanced"></i> Pháp luật & quyền lợi
+                        </a>
+                        <a href="thu-tuc-hanh-chinh.html">
+                            <i class="fa-solid fa-folder-open"></i> Thủ tục hành chính
+                        </a>
+                        <a href="canh-bao-lua-dao.html">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Cảnh báo lừa đảo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MỤC 3: PHẢN HỒI - GÓP Ý -->
+                <div class="nav-item">
+                    <a href="#">PHẢN HỒI - GÓP Ý <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="alert('Gửi phản ánh')">
+                            <i class="fa-solid fa-paper-plane"></i> Gửi phản ánh
+                        </a>
+                        <a href="#" onclick="alert('Tra cứu kết quả trả lời')">
+                            <i class="fa-solid fa-magnifying-glass"></i> Tra cứu kết quả trả lời
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MỤC 4: HỖ TRỢ -->
+                <div class="nav-item">
+                    <a href="#">HỖ TRỢ <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="alert('Xem: Điều khoản sử dụng')">
+                            <i class="fa-solid fa-file-contract"></i> Điều khoản sử dụng
+                        </a>
+                        <a href="#" onclick="alert('Xem: Hướng dẫn sử dụng')">
+                            <i class="fa-solid fa-book"></i> Hướng dẫn sử dụng
+                        </a>
+                        <a href="#" onclick="alert('Báo cáo sự cố')">
+                            <i class="fa-solid fa-bug"></i> Báo cáo sự cố
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- THANH TÌM KIẾM CỐ ĐỊNH TRÊN BANNER -->
+            <div class="search-container">
+                <div class="search-box-legal">
+                    <input type="text" id="legalSearch" placeholder="Nhập từ khóa tìm kiếm...">
+                    <button onclick="handleLegalSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. BREADCRUMB THANH ĐIỀU HƯỚNG -->
+    <div class="breadcrumb-bar">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a> 
+        <i class="fa-solid fa-angle-right"></i> 
+        <span>PHÁP LUẬT & QUYỀN LỢI</span>
+    </div>
+
+    <!-- 3. MAIN CONTAINER -->
+    <div class="main-container">
+        
+        <!-- Bố cục 2 Cột -->
+        <div class="law-layout">
+            
+            <!-- Cột Trái: DANH MỤC -->
+            <div class="sidebar-category">
+                <div class="sidebar-title">
+                    <i class="fa-solid fa-scale-balanced"></i> DANH MỤC
+                </div>
+                <div class="category-list">
+                    <button class="category-btn active" onclick="selectCategory(this, 'LUẬT LAO ĐỘNG')">
+                        <span>LUẬT LAO ĐỘNG</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <button class="category-btn" onclick="selectCategory(this, 'LUẬT DÂN SỰ')">
+                        <span>LUẬT DÂN SỰ</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <button class="category-btn" onclick="selectCategory(this, 'LUẬT ĐẤT ĐAI')">
+                        <span>LUẬT ĐẤT ĐAI</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <button class="category-btn" onclick="selectCategory(this, 'LUẬT HÔN NHÂN')">
+                        <span>LUẬT HÔN NHÂN</span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tra cứu thật: nội dung được lấy từ danh mục PDF và Công báo -->
+            <div class="law-content-area">
+                <h1 class="law-main-heading">Tra cứu pháp luật và quyền lợi</h1>
+                <p class="gds-page-intro">Chọn lĩnh vực hoặc tìm tên văn bản, số hiệu và vấn đề bạn đang gặp. Tài liệu gốc được liên kết tới nguồn để bạn tự kiểm tra.</p>
+                <section id="gds-reference-library" data-domain="LEGAL" aria-label="Văn bản pháp luật theo lĩnh vực"></section>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- 5. FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <span><i class="fa-solid fa-globe"></i> www.gocdansinh.com.vn</span>
+            <span><i class="fa-solid fa-book-open"></i> Tra cứu nguồn công khai, không thu thập OTP</span>
+            <span><i class="fa-solid fa-envelope"></i> Email: gocdansinh@gmail.com</span>
+        </div>
+    </footer>
+
+    <script>
+        function handleLegalSearch() {
+            const query = document.getElementById('legalSearch').value;
+            if(query.trim() !== "") {
+                alert("Đang tìm kiếm văn bản pháp luật với từ khóa: " + query);
+            } else {
+                alert("Vui lòng nhập từ khóa tìm kiếm!");
+            }
+        }
+
+        function selectCategory(btn, categoryName) {
+            // Đổi active button
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            alert("Đã chọn danh mục: " + categoryName);
+        }
+
+        function toggleChat() {
+            const modal = document.getElementById('chatModal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        function sendMsg() {
+            const input = document.getElementById('chatInput');
+            const chatBody = document.getElementById('chatBody');
+            
+            if(input.value.trim() !== "") {
+                const userMsg = document.createElement('div');
+                userMsg.className = 'msg';
+                userMsg.style.background = '#3b82f6';
+                userMsg.style.color = '#fff';
+                userMsg.style.alignSelf = 'flex-end';
+                userMsg.style.borderBottomRightRadius = '2px';
+                userMsg.innerText = input.value;
+                chatBody.appendChild(userMsg);
+
+                const query = input.value;
+                input.value = "";
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                setTimeout(() => {
+                    const aiMsg = document.createElement('div');
+                    aiMsg.className = 'msg msg-ai';
+                    aiMsg.innerText = "Hệ thống đang trích xuất căn cứ pháp lý liên quan đến câu hỏi '" + query + "' của bạn...";
+                    chatBody.appendChild(aiMsg);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 800);
+            }
+        }
+    </script>
+<script defer src="./js/gds-library.js"></script>
+    <script defer src="./js/gds-live.js"></script>
+<script defer src="./js/gds-chat.js"></script>
+<script>
+(function(){const terms={'LAO ĐỘNG':'lao-dong','DÂN SỰ':'dan-su','ĐẤT ĐAI':'dat-dai','HÔN NHÂN':'hon-nhan'};window.selectCategory=function(btn,name){const n=String(name||btn.textContent).toLocaleUpperCase('vi-VN');for(const [text,id] of Object.entries(terms))if(n.includes(text)){location.href='./kho-van-ban.html?domain=LEGAL&topic='+id;return}location.href='./kho-van-ban.html?domain=LEGAL'};})();
+</script><script defer src="./js/gds-search-enhancement.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+/* GDS live integration – preserves existing page layouts */
+.gds-live {margin:26px auto 12px; padding:24px; background:#fff; border:1px solid #cbd5e1; border-radius:16px; box-shadow:0 8px 25px rgba(15,23,42,.06); color:#1e293b;max-width:1050px}
+.gds-live h2 {font-size:20px;font-weight:800;color:#1e3a8a;margin:0 0 8px;text-align:left}
+.gds-live p {margin:8px 0;line-height:1.55;font-size:14px}
+.gds-live .gds-muted {color:#64748b}
+.gds-live .gds-status {border-radius:9px;background:#eff6ff;border:1px solid #bfdbfe;padding:10px 12px;font-weight:600;color:#1e40af}
+.gds-live .gds-warning {background:#fffbeb;border-color:#fde68a;color:#92400e}
+.gds-live .gds-error {background:#fef2f2;border-color:#fecaca;color:#991b1b}
+.gds-live .gds-tag {display:inline-block;border-radius:999px;padding:4px 10px;margin:4px 5px 4px 0;background:#f1f5f9;color:#334155;font-size:12px;font-weight:700}
+.gds-live .gds-list {display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:12px}
+.gds-live .gds-item {display:block;width:100%;border:1px solid #dbeafe;border-radius:12px;padding:15px;background:#f8fafc;text-align:left;color:inherit;cursor:pointer;line-height:1.5}
+.gds-live .gds-item strong {display:block;color:#1e3a8a;font-size:14px;margin-bottom:5px}
+.gds-live .gds-item span {font-size:13px;color:#475569}
+.gds-live .gds-item:hover {border-color:#3b82f6;background:#eff6ff}
+.gds-modal-overlay {display:none;position:fixed;inset:0;background:rgba(15,23,42,.7);z-index:99999;align-items:center;justify-content:center;padding:18px}
+.gds-modal {max-width:780px;width:100%;max-height:88vh;overflow-y:auto;background:white;border-radius:16px;padding:24px;color:#1e293b;box-shadow:0 25px 75px rgba(0,0,0,.3)}
+.gds-modal .gds-close {float:right;border:none;background:#eff6ff;color:#1e3a8a;padding:8px 14px;border-radius:7px;cursor:pointer;font-weight:700}
+.gds-modal h2 {color:#1e3a8a;font-size:21px;margin:12px 0}
+.gds-modal h3 {color:#1e40af;font-size:17px;margin:17px 0 8px}
+.gds-modal p,.gds-modal li {line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere}
+.gds-modal ul,.gds-modal ol {padding-left:26px}
+.gds-auth-notice {margin:14px 0;border:1px solid #fde68a;background:#fffbeb;color:#92400e;border-radius:8px;padding:12px;line-height:1.5;text-align:left;font-size:13px}
+@media(max-width:680px){.gds-live{padding:15px;margin:20px 10px}.gds-live .gds-list{grid-template-columns:1fr}.gds-modal{padding:16px}}
+
+.gds-dev-link {display:inline-block;margin-top:10px;color:#1d4ed8;font-weight:700;font-size:14px;text-decoration:underline}
+
+/* Keep unverified PDF references visibly separate from officially published records. */
+.gds-live-references {margin-top:1.25rem; border-top:1px solid #dce4ef; padding-top:1rem;}
+.gds-live-references h3 {margin:0 0 .65rem; color:#15335b; font-size:1.05rem;}
+.gds-live-references .gds-lib-results {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:.75rem;margin:.75rem 0;}
+.gds-live-references .gds-lib-item {border:1px solid #dce4ef;border-radius:10px;padding:.85rem;background:#fff;}
+.gds-live-references .gds-lib-item h4 {margin:0 0 .3rem;font-size:.96rem;}
+.gds-live-references .gds-reference-toggle {padding:.6rem .8rem;cursor:pointer;background:#e9f1ff;color:#163c70;border:1px solid #bacce8;border-radius:8px;}

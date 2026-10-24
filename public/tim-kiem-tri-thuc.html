@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Tra cứu - Tìm kiếm và liên kết tri thức | Góc Dân Sinh</title>
+  <link rel="stylesheet" href="./css/gds-search.css">
+  <script src="./js/gds-search.js" defer></script>
+<link rel="stylesheet" href="./css/gds-chat.css">
+</head>
+<body>
+<header class="top"><div><a href="./">Góc Dân Sinh</a><span>/</span><a href="./mvp-noi-bo.html">Kho MVP nội bộ</a></div><span>TÌM KIẾM · LIÊN KẾT BA KHO</span></header>
+<main>
+  <p class="eyebrow">TRUY XUẤT CÓ QUY TẮC · CHƯA PHẢI TRỢ LÝ AI</p>
+  <h1>Tìm thông tin từ LEGAL – ADMIN – SCAM</h1>
+  <p class="lead">Đặt một câu hỏi đời sống. Hệ thống tìm bản ghi phù hợp trong SQL Server, đối chiếu metadata và hiển thị các nội dung liên kết. Không tạo kết luận bằng AI.</p>
+  <div class="notice" role="note"><strong>Thông tin có giới hạn</strong><p>Chế độ công khai chỉ xem nội dung đã được xuất bản và xác minh nguồn. Chế độ nội bộ có thể chứa bản nháp và nguồn chưa kiểm chứng; tuyệt đối không dùng để tư vấn chính thức.</p></div>
+  <form id="search-form" autocomplete="off">
+    <label for="question">Câu hỏi</label>
+    <textarea id="question" rows="3" maxlength="240" required placeholder="Ví dụ: Tôi vừa nghỉ việc, có được hưởng trợ cấp thất nghiệp không?"></textarea>
+    <div class="form-row">
+      <div><label for="mode">Phạm vi dữ liệu</label><select id="mode"><option value="public">Công khai · chỉ đã xuất bản</option><option value="staff">Nội bộ · xem bản nháp (cần đăng nhập)</option></select></div>
+      <div><label for="domain">Lĩnh vực ưu tiên</label><select id="domain"><option value="ALL">Tất cả ba kho</option><option value="LEGAL">Pháp luật & quyền lợi</option><option value="ADMIN">Thủ tục hành chính</option><option value="SCAM">Cảnh báo lừa đảo</option></select></div>
+      <button type="submit" id="search-btn">Tra cứu</button>
+    </div>
+  </form>
+  <div class="examples" aria-label="Câu hỏi ví dụ"><button type="button" data-example="benefit">Tôi vừa nghỉ việc, có được hưởng trợ cấp thất nghiệp không?</button><button type="button" data-example="scam">Có người xưng là BHXH gọi yêu cầu tôi chuyển tiền, có phải lừa đảo không?</button></div>
+  <div id="status" role="status" aria-live="polite">Hãy nhập câu hỏi hoặc chọn một tình huống mẫu.</div>
+  <section id="analysis" hidden><h2>Nhận diện nhu cầu sơ bộ</h2><p id="intent"></p><div id="safety" class="safety" hidden><strong>Lưu ý an toàn</strong><p>Nếu bị yêu cầu chuyển tiền, cung cấp OTP hoặc mật khẩu: không thực hiện theo cuộc gọi; tự xác minh qua kênh chính thức. Nếu đã chuyển tiền, liên hệ ngân hàng ngay.</p></div><div id="missing"></div></section>
+  <section id="results" hidden><h2>Kết quả phù hợp</h2><div id="matches" class="cards"></div></section>
+  <section id="related" hidden><h2>Tri thức liên quan qua liên kết chéo</h2><div id="links" class="edge-list"></div><div id="related-items" class="cards"></div></section>
+  <div class="notice footer-note">Hệ thống tìm theo từ khóa và quy tắc ưu tiên; không tự kết luận điều kiện pháp lý cá nhân. <a href="./bat-dau.html">Về trang bắt đầu</a> để kiểm tra trạng thái nội dung công khai và các đường dẫn chính thức.</div>
+</main>
+<script defer src="./js/gds-chat.js"></script>
+</body>
+</html>

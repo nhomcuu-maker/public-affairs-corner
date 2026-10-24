@@ -1,0 +1,17 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const {execFileSync}=require('node:child_process');
+const root=path.resolve(__dirname,'..');
+const cmd=fs.readFileSync(path.join(root,'tools/source/run-auto-official-library.cmd'),'utf8');
+assert.match(cmd,/rss-terms-ack\.txt/);
+assert.match(cmd,/findstr \/X/);
+assert.match(cmd,/sync-official-feed\.cjs/);
+assert.match(cmd,/official-public-library\.cjs/);
+assert.match(cmd,/official-library-latest\.log/);
+assert.match(cmd,/official-auto-task\.lock/);
+const preview=execFileSync(process.execPath,[path.join(root,'tools/source/install-auto-official-library-task.cjs'),'--preview','--time','08:15'],{encoding:'utf8'});
+assert.match(preview,/PREVIEW ONLY/);
+assert.match(preview,/08:15/);
+console.log('PASS WINDOWS TASK FALLBACK: native CMD runner; terms check; source sync; no PowerShell policy changes');

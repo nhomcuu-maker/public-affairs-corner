@@ -1,0 +1,18 @@
+'use strict';
+const fs=require('node:fs');
+const path=require('node:path');
+const assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..');
+const html=fs.readFileSync(path.join(root,'public/canh-bao-lua-dao.html'),'utf8');
+const js=fs.readFileSync(path.join(root,'public/js/gds-live.js'),'utf8');
+const pdf=fs.readFileSync(path.join(root,'public/downloads/cam-nang-phong-chong-lua-dao.pdf'));
+assert(pdf.subarray(0,5).toString('ascii')==='%PDF-');
+assert(pdf.byteLength>25000);
+assert.match(html,/href="\/downloads\/cam-nang-phong-chong-lua-dao\.pdf"/);
+assert.match(html,/download="cam-nang-phong-chong-lua-dao\.pdf"/);
+assert(!html.includes('Đang bắt đầu tải xuống tài liệu'));
+assert(!js.includes('Chưa có file cẩm nang PDF được xác minh để tải xuống'));
+assert.equal((html.match(/<details class="gds-guide-card">/g)||[]).length,6);
+assert.match(html,/Các bài đã kiểm duyệt được hiển thị riêng bên dưới/);
+assert.match(html,/CẢNH BÁO ĐÃ ĐƯỢC CÔNG BỐ/);
+console.log('SCAM HANDBOOK: real 3-page PDF, six situation guides, no fake download handler; official publication unchanged.');

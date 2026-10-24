@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phản hồi và góp ý | Góc Dân Sinh</title>
+<meta name="description" content="Gửi góp ý, báo nội dung sai và tra cứu kết quả phản hồi trên Góc Dân Sinh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/ho-tro.css">
+</head>
+<body>
+<a class="skip" href="#noi-dung">Bỏ qua, tới nội dung chính</a>
+<header class="topbar"><div class="topbar-in">
+  <a class="brand" href="index.html">Góc Dân Sinh</a>
+  <nav class="nav" aria-label="Trang hỗ trợ"><a href="gioi-thieu.html">Giới thiệu</a><a href="ho-tro.html">Hỗ trợ</a><a href="phan-hoi.html" aria-current="page">Phản hồi và góp ý</a><a href="dieu-khoan-su-dung.html">Điều khoản</a><a href="chinh-sach-bao-mat.html">Bảo mật</a></nav>
+</div></header>
+<div class="wrap">
+
+<main id="noi-dung"><article>
+
+<h1>Phản hồi và góp ý</h1>
+<p class="lead">Báo nội dung sai, lỗi thời hoặc đề xuất chủ đề cần thêm. Bạn không cần tài khoản. Sau khi gửi, bạn nhận một mã để xem kết quả xử lý.</p>
+
+<h2 id="gui">Gửi góp ý</h2>
+<form id="form-gui" novalidate>
+  <label for="kind">Bạn muốn gửi gì?</label>
+  <select id="kind" name="kind" required>
+    <option value="content_error">Báo nội dung sai hoặc lỗi thời</option>
+    <option value="suggestion">Góp ý, đề xuất chủ đề</option>
+    <option value="question">Câu hỏi về website</option>
+    <option value="scam_tip">Thủ đoạn lừa đảo mới</option>
+    <option value="other">Khác</option>
+  </select>
+
+  <label for="subject">Tiêu đề <small>(3–150 ký tự)</small></label>
+  <input type="text" id="subject" name="subject" maxlength="150" required autocomplete="off">
+
+  <label for="message">Nội dung <small>(10–2000 ký tự)</small></label>
+  <textarea id="message" name="message" maxlength="2000" required aria-describedby="dem"></textarea>
+  <span class="count" id="dem">0 / 2000</span>
+
+  <label for="email">Email nhận phản hồi <small>(không bắt buộc)</small></label>
+  <input type="email" id="email" name="email" maxlength="254" autocomplete="email" inputmode="email">
+
+  <p id="bai-lien-quan" hidden></p>
+  <div class="hp" aria-hidden="true"><label for="website">Để trống</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+
+  <div class="warn"><p>Không điền số căn cước, mã OTP, mật khẩu, số thẻ hoặc số tài khoản vào đây.</p></div>
+  <button type="submit" id="nut-gui">Gửi góp ý</button>
+  <div class="msg" id="kq-gui" role="status" aria-live="polite" tabindex="-1"></div>
+</form>
+
+<h2 id="tra-cuu">Xem kết quả góp ý đã gửi</h2>
+<form id="form-tra" novalidate>
+  <label for="ma">Mã theo dõi <small>(ví dụ PH-ABCD-EFGH-JKMN)</small></label>
+  <input type="text" id="ma" name="ma" maxlength="24" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
+  <button type="submit" id="nut-tra">Xem kết quả</button>
+  <div class="msg" id="kq-tra" role="status" aria-live="polite" tabindex="-1"></div>
+</form>
+<p>Cần hỗ trợ khác? Xem trang <a href="ho-tro.html">Hỗ trợ</a>. Cách chúng tôi xử lý dữ liệu nằm ở <a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a>.</p>
+
+</article></main>
+</div>
+<footer><div class="foot-in">
+  <span>© Góc Dân Sinh. Cập nhật lần cuối: 11/10/2026.</span>
+  <nav aria-label="Liên kết chân trang"><a href="gioi-thieu.html">Giới thiệu</a><a href="ho-tro.html">Hỗ trợ</a><a href="phan-hoi.html">Phản hồi và góp ý</a><a href="dieu-khoan-su-dung.html">Điều khoản</a><a href="chinh-sach-bao-mat.html">Bảo mật</a></nav>
+</div></footer>
+<script>
+/* ĐỔI 2 ĐƯỜNG DẪN NÀY cho khớp backend của bạn (xem README, mục "Hợp đồng API"). */
+var API = { gui: "/api/feedback", tra: "/api/feedback/track" };
+
+var NHAN_TRANG_THAI = { received:"Đã tiếp nhận", in_review:"Đang xem xét", resolved:"Đã xử lý", rejected:"Không thể thực hiện" };
+var NHAN_LOAI = { content_error:"Báo nội dung sai hoặc lỗi thời", suggestion:"Góp ý, đề xuất", question:"Câu hỏi", scam_tip:"Thủ đoạn lừa đảo mới", other:"Khác" };
+function $(id){ return document.getElementById(id); }
+function esc(s){ var d=document.createElement("div"); d.textContent = s==null ? "" : String(s); return d.innerHTML; }
+function ngay(iso){ try { return new Date(iso).toLocaleString("vi-VN"); } catch(e){ return iso || ""; } }
+
+var bai = new URLSearchParams(location.search).get("bai");
+if (bai) { var p=$("bai-lien-quan"); p.hidden=false; p.innerHTML="Bạn đang góp ý về bài: <strong>"+esc(bai)+"</strong>"; }
+
+$("message").addEventListener("input", function(){ $("dem").textContent = this.value.length + " / 2000"; });
+
+function hienLoi(box, text){ box.innerHTML = '<div class="warn"><p>'+esc(text)+'</p></div>'; box.focus(); }
+
+async function goiApi(url, payload){
+  var res;
+  try {
+    res = await fetch(url, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(payload) });
+  } catch(e) { throw new Error("Chưa kết nối được máy chủ. Vui lòng kiểm tra mạng và thử lại."); }
+  var data = null;
+  try { data = await res.json(); } catch(e) {}
+  if (!res.ok) throw new Error((data && data.message) || ("Máy chủ trả lỗi " + res.status + "."));
+  return data || {};
+}
+
+$("form-gui").addEventListener("submit", async function(ev){
+  ev.preventDefault();
+  var box=$("kq-gui"), btn=$("nut-gui");
+  var subject=$("subject").value.trim(), message=$("message").value.trim(), email=$("email").value.trim();
+  if (subject.length < 3) return hienLoi(box, "Tiêu đề cần ít nhất 3 ký tự.");
+  if (message.length < 10) return hienLoi(box, "Nội dung cần ít nhất 10 ký tự.");
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return hienLoi(box, "Email chưa đúng định dạng. Bạn có thể bỏ trống ô này.");
+  if ($("website").value) return; /* ô bẫy spam */
+  btn.disabled = true; btn.textContent = "Đang gửi…"; box.innerHTML = "";
+  try {
+    var r = await goiApi(API.gui, { kind:$("kind").value, subject:subject, message:message, email:email || null, relatedCode:bai || null });
+    var code = r.trackingCode;
+    if (!code) throw new Error("Máy chủ không trả về mã theo dõi. Góp ý có thể chưa được lưu.");
+    box.innerHTML = '<div class="ok"><p><strong>Đã gửi góp ý. Hãy lưu mã này:</strong></p><p class="code" id="ma-hien">'+esc(code)+'</p>'+
+      '<p>Mã chỉ hiện một lần và chúng tôi không tra lại được nếu bạn làm mất.</p>'+
+      '<button type="button" class="ghost" id="nut-chep" style="margin-left:0">Sao chép mã</button></div>';
+    $("nut-chep").addEventListener("click", function(){
+      var t = $("ma-hien").textContent;
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function(){ $("nut-chep").textContent="Đã sao chép"; }, function(){ $("nut-chep").textContent="Hãy tự chép mã ở trên"; });
+    });
+    box.focus();
+    $("form-gui").reset(); $("dem").textContent = "0 / 2000";
+  } catch(e) { hienLoi(box, e.message); }
+  finally { btn.disabled = false; btn.textContent = "Gửi góp ý"; }
+});
+
+$("form-tra").addEventListener("submit", async function(ev){
+  ev.preventDefault();
+  var box=$("kq-tra"), btn=$("nut-tra"), ma=$("ma").value.trim();
+  if (ma.replace(/[\s-]/g,"").length < 12) return hienLoi(box, "Mã theo dõi chưa đủ ký tự. Mã có dạng PH-XXXX-XXXX-XXXX.");
+  btn.disabled = true; btn.textContent = "Đang tra…"; box.innerHTML = "";
+  try {
+    var r = await goiApi(API.tra, { code: ma });
+    if (!r.found) { box.innerHTML = '<div class="note"><p>Không tìm thấy góp ý với mã này. Hãy kiểm tra lại từng ký tự.</p></div>'; box.focus(); return; }
+    var reply = r.reply ? '<div class="ok"><p><strong>Phản hồi từ chúng tôi:</strong></p><p>'+esc(r.reply)+'</p></div>'
+                        : '<div class="note"><p>Chưa có nội dung phản hồi. Vui lòng quay lại sau.</p></div>';
+    box.innerHTML = '<dl class="result"><dt>Tình trạng</dt><dd><strong>'+esc(NHAN_TRANG_THAI[r.status] || r.status)+'</strong></dd>'+
+      '<dt>Loại</dt><dd>'+esc(NHAN_LOAI[r.kind] || r.kind)+'</dd>'+
+      '<dt>Tiêu đề</dt><dd>'+esc(r.subject)+'</dd>'+
+      '<dt>Gửi lúc</dt><dd>'+esc(ngay(r.createdAt))+'</dd>'+
+      '<dt>Cập nhật</dt><dd>'+esc(ngay(r.updatedAt))+'</dd></dl>' + reply;
+    box.focus();
+  } catch(e) { hienLoi(box, e.message); }
+  finally { btn.disabled = false; btn.textContent = "Xem kết quả"; }
+});
+if (location.hash === "#tra-cuu") $("ma").focus();
+</script>
+</body>
+</html>

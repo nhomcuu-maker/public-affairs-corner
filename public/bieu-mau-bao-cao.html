@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu Mẫu Báo Cáo Lừa Đảo - Góc Dân Sinh</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --primary-soft: #eff6ff;
+            --accent-yellow: #f59e0b;
+            --accent-yellow-light: #fef3c7;
+            --accent-ai: #10b981;
+            --bg-body: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #cbd5e1;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+            --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- HEADER --- */
+        .top-header {
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 90;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .logo-section:hover {
+            transform: translateY(-1px);
+        }
+
+        .logo-badge {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+        }
+
+        .site-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        /* --- BREADCRUMB --- */
+        .breadcrumb-bar {
+            background-color: var(--primary-soft);
+            padding: 12px 8%;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #dbeafe;
+        }
+
+        .breadcrumb-bar a {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb-bar a:hover {
+            color: var(--primary-light);
+        }
+
+        .breadcrumb-bar i.separator {
+            font-size: 10px;
+            color: #93c5fd;
+        }
+
+        .breadcrumb-active {
+            color: #475569;
+            font-weight: 700;
+        }
+
+        /* --- MAIN FORM CONTAINER --- */
+        .main-container {
+            max-width: 780px;
+            margin: 40px auto 60px auto;
+            padding: 0 20px;
+            width: 100%;
+            flex: 1;
+        }
+
+        .report-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* HEADER THẺ CÓ MÀU VÀNG CHỦ ĐẠO NHƯ BẢN VẼ */
+        .report-header {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #78350f;
+            padding: 24px 30px;
+            text-align: center;
+            border-bottom: 2px solid #f59e0b;
+        }
+
+        .report-header h1 {
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .report-header p {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 6px;
+            opacity: 0.9;
+        }
+
+        .report-body {
+            padding: 32px 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        /* FORM GROUP STYLES */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-weight: 700;
+            font-size: 14.5px;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-label i {
+            color: var(--primary-light);
+            font-size: 15px;
+        }
+
+        .required-asterisk {
+            color: #dc2626;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 14.5px;
+            color: var(--text-main);
+            background-color: #f8fafc;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            background-color: #ffffff;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+        }
+
+        /* UPLOAD FILE ZONE (<5MB) */
+        .upload-zone {
+            border: 2px dashed #cbd5e1;
+            border-radius: 14px;
+            padding: 24px;
+            text-align: center;
+            background: #fafafa;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--primary-light);
+            background: #eff6ff;
+        }
+
+        .upload-icon {
+            font-size: 32px;
+            color: var(--primary-light);
+            margin-bottom: 8px;
+        }
+
+        .upload-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .upload-subtext {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .file-input-hidden {
+            display: none;
+        }
+
+        /* BANNER HƯỚNG DẪN ẨN DANH */
+        .privacy-note {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #166534;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        /* NÚT GỬI BÁO CÁO */
+        .btn-submit-report {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: #ffffff;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit-report:hover {
+            background: linear-gradient(135deg, #1e293b, #1e3a8a);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.35);
+        }
+
+        /* --- FLOATING TRỢ LÝ DÂN SINH --- */
+        .ai-assistant-wrapper {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .ai-tooltip-banner {
+            background: #ffffff;
+            color: #0f172a;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 13.5px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+            border: 1px solid #10b981;
+            cursor: pointer;
+            white-space: nowrap;
+            animation: slideBanner 8s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ai-tooltip-banner i {
+            color: #10b981;
+        }
+
+        @keyframes slideBanner {
+            0%, 100% { opacity: 0; transform: translateX(20px); visibility: hidden; }
+            15%, 85% { opacity: 1; transform: translateX(0); visibility: visible; }
+        }
+
+        .ai-floating-btn {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 11px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+            line-height: 1.2;
+            padding: 4px;
+            flex-shrink: 0;
+        }
+
+        .ai-floating-btn i {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+
+        .ai-floating-btn:hover {
+            transform: scale(1.08) rotate(3deg);
+        }
+
+        .ai-chat-modal {
+            position: fixed;
+            bottom: 115px;
+            right: 32px;
+            width: 360px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s ease-out forwards;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ai-chat-header {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .ai-chat-body {
+            padding: 16px;
+            height: 250px;
+            overflow-y: auto;
+            font-size: 13.5px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #f8fafc;
+        }
+
+        .chat-msg {
+            padding: 10px 14px;
+            border-radius: 12px;
+            max-width: 85%;
+        }
+
+        .chat-msg.bot {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            align-self: flex-start;
+        }
+
+        .chat-msg.user {
+            background: #059669;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .ai-chat-footer {
+            padding: 12px;
+            display: flex;
+            gap: 8px;
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .ai-chat-footer input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            font-size: 13px;
+        }
+
+        .ai-chat-footer button {
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 28px 20px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+            font-weight: 500;
+        }
+
+        .footer-content span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 580px) {
+            .top-header, .breadcrumb-bar {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+            .report-body {
+                padding: 24px 20px;
+            }
+            .ai-tooltip-banner {
+                display: none;
+            }
+            .ai-chat-modal {
+                width: calc(100vw - 32px);
+                right: 16px;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="./css/gds-chat.css">
+</head>
+<body>
+
+    <!-- 1. HEADER LOGO -->
+    <header class="top-header">
+        <div class="logo-section" onclick="location.href='index.html'">
+            <div class="logo-badge">GDS</div>
+            <div class="site-title">GÓC DÂN SINH</div>
+        </div>
+    </header>
+
+    <!-- 2. BREADCRUMB THANH ĐIỀU HƯỚNG DẪN ĐẾN BIỂU MẪU BÁO CÁO -->
+    <nav class="breadcrumb-bar">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a> 
+        <i class="fa-solid fa-chevron-right separator"></i> 
+        <a href="canh-bao-lua-dao.html"> Cảnh báo lừa đảo</a>
+        <i class="fa-solid fa-chevron-right separator"></i> 
+        <span class="breadcrumb-active">Biểu mẫu báo cáo</span>
+    </nav>
+
+    <!-- 3. BIỂU MẪU BÁO CÁO LỪA ĐẢO TRUNG TÂM -->
+    <main class="main-container">
+        <div class="report-card">
+            
+            <!-- HEADER THẺ VÀNG NHƯ BẢN VẼ -->
+            <div class="report-header">
+                <h1><i class="fa-solid fa-shield-cat"></i> BIỂU MẪU BÁO CÁO</h1>
+                <p>Tiếp nhận thông tin cảnh báo & tình nghi lừa đảo từ người dân</p>
+            </div>
+
+            <!-- NỘI DUNG BIỂU MẪU 6 MỤC YÊU CẦU -->
+            <form class="report-body" onsubmit="submitForm(event)">
+                
+                <!-- 1. CẢNH BÁO / BẰNG CHỨNG (ẢNH CHỤP < 5MB) -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-image"></i> 
+                        1. Ảnh chụp báo cáo / Bằng chứng tin nhắn (< 5MB) <span class="required-asterisk">*</span>
+                    </label>
+                    <div class="upload-zone" onclick="document.getElementById('fileUpload').click()">
+                        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                        <div class="upload-text" id="fileNameText">Nhấp để chọn ảnh hoặc kéo thả vào đây</div>
+                        <div class="upload-subtext">Hỗ trợ JPG, PNG, WEBP (Tối đa 5MB)</div>
+                    </div>
+                    <input type="file" id="fileUpload" class="file-input-hidden" accept="image/*" onchange="handleFileSelect(this)">
+                </div>
+
+                <!-- 2. THÔNG TIN KẺ LỪA ĐẢO (SĐT/STK/TÊN KHÁC) -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-user-ninja"></i> 
+                        2. Thông tin kẻ lừa đảo (SĐT/STK/Tên/Link) <span class="required-asterisk">*</span>
+                    </label>
+                    <input type="text" class="form-input" placeholder="Ví dụ: 0912345xxx hoặc STK: 1029384xxx (Ngân hàng ABC)..." required>
+                </div>
+
+                <!-- 3. SĐT LIÊN HỆ CỦA NGƯỜI BÁO CÁO -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-phone"></i> 
+                        3. SĐT liên hệ của người báo cáo
+                    </label>
+                    <input type="tel" class="form-input" placeholder="Nhập số điện thoại của bạn (để xác minh nếu cần)...">
+                    <div class="privacy-note">
+                        <i class="fa-solid fa-user-shield" style="margin-top:2px;"></i>
+                        <span>Thông tin của bạn được <b>bảo mật tuyệt đối</b>. Bạn có thể để trống nếu muốn gửi báo cáo ẩn danh.</span>
+                    </div>
+                </div>
+
+                <!-- 4. HÌNH THỨC LỪA ĐẢO -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-layer-group"></i> 
+                        4. Hình thức lừa đảo <span class="required-asterisk">*</span>
+                    </label>
+                    <select class="form-select" required>
+                        <option value="" disabled selected>-- Chọn hình thức lừa đảo --</option>
+                        <option value="1">Giả danh cơ quan công an / nhà nước</option>
+                        <option value="2">Tuyển dụng việc nhẹ lương cao / làm nhiệm vụ</option>
+                        <option value="3">Vay tiền online / Đầu tư tài chính, chứng khoán</option>
+                        <option value="4">Tài khoản mạng xã hội giả (Hack/Nhái người quen)</option>
+                        <option value="5">Website giả mạo / Đường link độc hại (Phishing)</option>
+                        <option value="6">Giả mạo dịch vụ công (VNeID, thuế, bảo hiểm)</option>
+                        <option value="other">Hình thức lừa đảo khác</option>
+                    </select>
+                </div>
+
+                <!-- 5. MÔ TẢ NGẮN -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-pen-to-square"></i> 
+                        5. Mô tả ngắn diễn biến vụ việc <span class="required-asterisk">*</span>
+                    </label>
+                    <textarea class="form-textarea" rows="4" placeholder="Mô tả tóm tắt thủ đoạn kẻ lừa đảo đã sử dụng, thời gian xảy ra..." required></textarea>
+                </div>
+
+                <!-- 6. SỐ TIỀN BỊ LỪA (NẾU CÓ) -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fa-solid fa-money-bill-wave"></i> 
+                        6. Số tiền bị lừa (nếu có)
+                    </label>
+                    <input type="text" class="form-input" id="moneyAmount" placeholder="Ví dụ: 5.000.000 VNĐ" oninput="formatCurrency(this)">
+                </div>
+
+                <!-- NÚT GỬI -->
+                <button type="submit" class="btn-submit-report">
+                    <i class="fa-solid fa-paper-plane"></i> GỬI BÁO CÁO NGAY
+                </button>
+
+            </form>
+        </div>
+    </main>
+    <!-- 5. FOOTER THÔNG TIN CƠ BẢN -->
+    <footer>
+        <div class="footer-content">
+            <span><i class="fa-solid fa-globe"></i> www.gocdansinh.com.vn</span>
+            <span><i class="fa-solid fa-headset"></i> Tổng đài liên hệ: XXXXXX</span>
+            <span><i class="fa-solid fa-envelope"></i> Email liên hệ: gocdansinh@gmail.com</span>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT XỬ LÝ SỰ KIỆN -->
+    <script>
+        // Xử lý upload chọn file
+        function handleFileSelect(input) {
+            const fileText = document.getElementById('fileNameText');
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('Dung lượng file vượt quá 5MB. Vui lòng chọn ảnh dung lượng nhỏ hơn!');
+                    input.value = '';
+                    fileText.textContent = 'Nhấp để chọn ảnh hoặc kéo thả vào đây';
+                    return;
+                }
+                fileText.textContent = `Đã chọn ảnh: ${file.name} (${(file.size/1024/1024).toFixed(2)} MB)`;
+            }
+        }
+
+        // Định dạng hiển thị tiền tệ
+        function formatCurrency(input) {
+            let value = input.value.replace(/\D/g, '');
+            if(value) {
+                value = parseInt(value, 10).toLocaleString('vi-VN');
+                input.value = value + ' VNĐ';
+            }
+        }
+
+        // Gửi báo cáo
+        function submitForm(event) {
+            event.preventDefault();
+            alert('Gửi báo cáo thành công! Hệ thống Góc Dân Sinh đã tiếp nhận thông tin và sẽ xác minh trong thời gian sớm nhất.');
+            window.location.href = 'canh-bao-lua-dao.html';
+        }
+
+        // Bật tắt Chatbot AI
+        function toggleAIChat() {
+            const modal = document.getElementById('aiChatModal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        function sendAIMessage() {
+            const input = document.getElementById('aiInput');
+            const chatBody = document.getElementById('chatBody');
+            const text = input.value.trim();
+
+            if (text !== '') {
+                const userMsg = document.createElement('div');
+                userMsg.className = 'chat-msg user';
+                userMsg.textContent = text;
+                chatBody.appendChild(userMsg);
+
+                input.value = '';
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                setTimeout(() => {
+                    const botMsg = document.createElement('div');
+                    botMsg.className = 'chat-msg bot';
+                    botMsg.textContent = 'Trợ lý Dân Sinh đã ghi nhận. Hãy đảm bảo ảnh bằng chứng của bạn hiển thị rõ số tài khoản/số điện thoại của đối tượng nhé!';
+                    chatBody.appendChild(botMsg);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 800);
+            }
+        }
+    </script>
+<script defer src="./js/gds-chat.js"></script>
+</body>
+</html>

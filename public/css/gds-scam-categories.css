@@ -1,0 +1,51 @@
+/* Scam taxonomy and published notices remain independent. */
+.gds-scam-catalog .scam-card { font: inherit; color: inherit; width: 100%; min-height: 164px; }
+.gds-scam-catalog .scam-card[hidden] { display: none !important; }
+.gds-scam-catalog .scam-card.scam-selected { border: 2px solid #2563eb; background: #eff6ff; }
+.gds-scam-catalog .scam-card:focus-visible,
+.gds-scam-catalog .see-more-btn:focus-visible,
+.scam-view-all:focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; }
+.gds-scam-catalog .scam-category-note { color: #64748b; font-size: 13px; margin: 18px auto 0; max-width: 680px; }
+.scam-published-intro { border-top: 1px solid #dbe4ee; padding-top: 28px; margin-top: 18px; text-align: center; }
+.scam-published-intro h2 { color: #1e3a8a; font-size: 21px; font-weight: 800; }
+.scam-published-intro p { color: #64748b; font-size: 13px; margin: 10px auto 15px; }
+.scam-view-all { display: inline-block; border: 1px solid #bfdbfe; border-radius: 22px; padding: 9px 18px; color: #1e40af; background: #eff6ff; cursor: pointer; font-weight: 700; }
+.scam-view-all:hover { background: #dbeafe; }
+#scamPublishedMount .gds-live { margin-top: 20px; max-width: none; }
+@media (max-width: 580px) { .gds-scam-catalog .scam-card { min-height: 120px; } }
+
+/* Generic article navigation; cards are backed only by published content. */
+.scam-public-actions {display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap}
+.scam-published-intro .scam-how-to-read {max-width:740px;margin:14px auto 0;color:#334155;font-size:13px}
+#scamPublishedMount .gds-scam-topic {display:block;font-weight:700;font-size:12px;color:#1e40af;letter-spacing:.01em;margin-bottom:8px}
+#scamPublishedMount .gds-read-detail {display:inline-block;margin-top:10px;font-weight:700;text-decoration:underline;color:#1d4ed8}
+.gds-detail-category {color:#1e40af;font-weight:700;background:#eff6ff;padding:7px 11px;border-radius:8px;margin-top:20px}
+.gds-detail-summary {font-weight:600}
+.gds-document-body {margin:15px 0;padding:14px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0}
+.gds-document-body h3 {margin:16px 0 9px}
+.gds-document-body h4 {margin:12px 0 6px;color:#334155}
+.gds-document-body p {white-space:normal;margin:9px 0;line-height:1.7}
+.gds-document-body li {white-space:normal;margin:5px 0;line-height:1.65}
+.gds-document-link {color:#1d4ed8;text-decoration:underline}
+.gds-verified-sources {background:#f0fdf4;border:1px solid #bbf7d0;padding:15px;border-radius:12px;margin:20px 0}
+.gds-verified-sources h3 {margin:0 0 10px;color:#166534}
+.gds-official-source {display:block;color:#166534;text-decoration:underline;font-weight:600;margin-top:6px;overflow-wrap:anywhere}
+.gds-official-source:focus-visible, #scamPublishedMount .gds-item:focus-visible {outline:3px solid #2563eb;outline-offset:3px}
+
+.gds-modal > .gds-document-link {display:inline-block;margin:2px 0 14px;font-size:13px;font-weight:700}
+
+/* Community guide intentionally separate from SQL-verified published alerts. */
+.btn-download[href$=".pdf"]{text-decoration:none;color:#fff!important;justify-content:center;max-width:100%;line-height:1.4}
+.gds-handbook-caption{margin:12px auto 0;max-width:580px;color:#64748b;font-size:12px;line-height:1.6}
+.gds-handbook-guides{margin:30px 0 34px;padding:25px;border-radius:16px;border:1px solid #dbe4ef;background:#fff}
+.gds-guide-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:16px}
+.gds-guide-heading h2{font-size:20px;color:#1e3a8a;margin:0 0 8px;font-weight:800}
+.gds-guide-heading p{font-size:14px;line-height:1.6;color:#64748b;max-width:620px;margin:0}
+.gds-guide-download{border:1px solid #b7c7de;border-radius:9px;text-decoration:none;background:#f8fafc;padding:10px 14px;white-space:nowrap;font-weight:700;color:#1d4ed8}
+.gds-guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.gds-guide-card{border:1px solid #d8e1ef;border-radius:11px;background:#f8fafc;padding:14px 17px;min-width:0}
+.gds-guide-card summary{color:#1e3a8a;font-weight:700;font-size:14px;line-height:1.55;cursor:pointer}
+.gds-guide-card[open]{background:#fff}
+.gds-guide-card p{color:#334155;font-size:13px;line-height:1.7;margin:12px 0 0}
+.gds-guide-disclaimer{color:#64748b;font-size:12px;line-height:1.6;margin:14px 0 0}
+@media(max-width:680px){.gds-guide-heading{flex-direction:column}.gds-guide-grid{grid-template-columns:1fr}.gds-handbook-guides{padding:18px}.gds-guide-download{white-space:normal}.btn-download[href$=".pdf"]{font-size:12px;padding:11px 14px}}

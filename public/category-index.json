@@ -1,0 +1,191 @@
+{
+  "generatedAt": "2026-10-11T01:10:00.553Z",
+  "feedError": null,
+  "notice": "Tài liệu tham khảo/chỉ mục nguồn, chưa xác minh hiệu lực. Không phải danh sách thủ tục đã công bố.",
+  "categories": {
+    "LEGAL": [
+      {
+        "id": "lao-dong",
+        "title": "Luật lao động",
+        "count": 1
+      },
+      {
+        "id": "dan-su",
+        "title": "Luật dân sự",
+        "count": 0
+      },
+      {
+        "id": "dat-dai",
+        "title": "Luật đất đai",
+        "count": 0
+      },
+      {
+        "id": "hon-nhan",
+        "title": "Luật hôn nhân và gia đình",
+        "count": 0
+      }
+    ],
+    "ADMIN": [
+      {
+        "id": "con-nho",
+        "title": "Có con nhỏ",
+        "count": 0
+      },
+      {
+        "id": "hoc-tap",
+        "title": "Học tập",
+        "count": 0
+      },
+      {
+        "id": "viec-lam",
+        "title": "Việc làm",
+        "count": 1
+      },
+      {
+        "id": "cu-tru",
+        "title": "Cư trú và giấy tờ tùy thân",
+        "count": 0
+      },
+      {
+        "id": "hon-nhan",
+        "title": "Hôn nhân và gia đình",
+        "count": 0
+      },
+      {
+        "id": "dat-dai",
+        "title": "Điện lực, nhà ở, đất đai",
+        "count": 0
+      },
+      {
+        "id": "y-te",
+        "title": "Sức khỏe và y tế",
+        "count": 0
+      },
+      {
+        "id": "phuong-tien",
+        "title": "Phương tiện và người lái",
+        "count": 0
+      },
+      {
+        "id": "huu-tri",
+        "title": "Hưu trí",
+        "count": 0
+      },
+      {
+        "id": "tu-vong",
+        "title": "Người thân qua đời",
+        "count": 0
+      },
+      {
+        "id": "khieu-kien",
+        "title": "Giải quyết khiếu kiện",
+        "count": 0
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "local-64bc8c066afea584cd",
+      "kind": "pdf",
+      "domain": "LEGAL",
+      "title": "Luật Việc làm số 74/2025/QH15",
+      "url": "/library-files/64bc8c066afea584cd.pdf",
+      "source": "Thư viện PDF cục bộ",
+      "verified": false,
+      "topics": [
+        "lao-dong"
+      ],
+      "excerpt": "-- 1 of 26 -- -- 2 of 26 -- -- 3 of 26 -- -- 4 of 26 -- -- 5 of 26 -- -- 6 of 26 -- -- 7 of 26 -- -- 8 of 26 -- -- 9 of 26 -- -- 10 of 26 -- -- 11 of 26 -- -- 12 of 26 -- -- 13 of 26 -- -- 14 of 26 -- -- 15 of 26 -- -- 16 of 26 -- -- 17 of 26 -- -- 18 of 26 -- -- 19 of 26 -- -- 20 of 26 -- -- 21 of 26 -- -- 22 of 26 -- -- 23 of 26 -- -- 24 of 26 -- -- 25 of 26 -- -- 26 of 26 --"
+    },
+    {
+      "id": "local-99868197b58f3e1d5c",
+      "kind": "pdf",
+      "domain": "ADMIN",
+      "title": "Thủ tục hưởng trợ cấp thất nghiệp năm 2026",
+      "url": "/library-files/99868197b58f3e1d5c.pdf",
+      "source": "Thư viện PDF cục bộ",
+      "verified": false,
+      "topics": [
+        "viec-lam"
+      ],
+      "excerpt": "BỘ NỘI VỤ Số: /QĐ-BNV CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc Hà Nội, ngày tháng 01 năm 2026 QUYẾT ĐỊNH Về việc công bố thủ tục hành chính mới ban hành, bị bãi bỏ tại Nghị định số 374/2025/NĐ-CP ngày 31 tháng 12 năm 2025 của Chính phủ quy định chi tiết một số điều của Luật Việc làm về bảo hiểm thất nghiệp BỘ TRƯỞNG BỘ NỘI VỤ Căn cứ Nghị định số 25/2025/NĐ-CP ngày 21 tháng 02 năm 2025 của Chính phủ quy định chức năng, nhiệm vụ, quyền hạn và cơ cấu tổ chức của Bộ Nội vụ; Căn cứ Nghị định số 63/2010/NĐ-CP ngày 08 tháng 6 năm 2010 của Chính phủ về kiểm soát thủ tục hành chính; Nghị định số 48/2013/NĐ-CP ngày 14 tháng 5 năm 2013 của Chính phủ sửa đổi, bổ sung một số điều của các nghị định liên quan đến kiểm soát thủ tục hành chính; Nghị định số 92/2017/NĐ-CP ngày 07 tháng 8 năm 2017 của Chính phủ sửa đổi, bổ sung một số điều của các Nghị định liên quan đến kiểm soát thủ tục hành chính; Theo đề nghị của Cục trưởng Cục Việc làm và Chánh Văn phòng Bộ Nội vụ. QUYẾT ĐỊNH: Điều 1. Công bố kèm theo Quyết định này thủ tục hành chính mới ban hành, bị bãi bỏ tại Nghị định số "
+    },
+    {
+      "id": "local-89c9fa7b24c9db4531",
+      "kind": "pdf",
+      "domain": "LEGAL",
+      "title": "Văn bản số 117/2026/TT-BTC",
+      "url": "/library-files/89c9fa7b24c9db4531.pdf",
+      "source": "Thư viện PDF cục bộ",
+      "verified": false,
+      "topics": [],
+      "excerpt": "CÔNG BÁO/Số 495/Ngày 28-08-2026 70 BỘ TÀI CHÍNH Số: 117/2026/TT-BTC CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc Hà Nội, ngày 14 tháng 8 năm 2026 THÔNG TƯ Quy định miễn, giảm một số khoản phí, lệ phí để triển khai Nghị quyết số 66.22/2026/NQ-CP ngày 09 tháng 7 năm 2026 của Chính phủ về phát triển công dân số Căn cứ Luật Phí và lệ phí số 97/2015/QH13; Căn cứ Nghị quyết số 66.22/2026/NQ-CP của Chính phủ về phát triển công dân số; Căn cứ Nghị định số 29/2025/NĐ-CP của Chính phủ quy định chức năng, nhiệm vụ, quyền hạn và cơ cấu tổ chức của Bộ Tài chính được sửa đổi, bổ sung bởi Nghị định số 166/2025/NĐ-CP; Theo đề nghị của Cục trưởng Cục Quản lý, giám sát chính sách thuế, phí và lệ phí; Bộ trưởng Bộ Tài chính ban hành Thông tư quy định miễn, giảm một số khoản phí, lệ phí để triển khai Nghị quyết số 66.22/2026/NQ-CP của Chính phủ về phát triển công dân số. Điều 1. Miễn, giảm một số khoản phí, lệ phí để triển khai Nghị quyết số 66.22/2026/NQ-CP về phát triển công dân số Từ ngày 15 tháng 8 năm 2026 đến hết ngày 28 tháng 02 năm 2027, công dân Việt Nam có tài khoản định danh"
+    },
+    {
+      "id": "local-5f8d088496958e23d8",
+      "kind": "pdf",
+      "domain": "LEGAL",
+      "title": "Văn bản số 118/2025/QH15",
+      "url": "/library-files/5f8d088496958e23d8.pdf",
+      "source": "Thư viện PDF cục bộ",
+      "verified": false,
+      "topics": [],
+      "excerpt": "CÔNG BÁO/Số 35/Ngày 21-01-2026 64 QUỐC HỘI CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc Luật số: 118/2025/QH15 LUẬT SỬA ĐỔI, BỔ SUNG MỘT SỐ ĐIỀU CỦA 10 LUẬT CÓ LIÊN QUAN ĐẾN AN NINH, TRẬT TỰ Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam đã được sửa đổi, bổ sung một số điều theo Nghị quyết số 203/2025/QH15; Quốc hội ban hành Luật sửa đổi, bổ sung một số điều của Luật Cảnh vệ số 13/2017/QH14 đã được sửa đổi, bổ sung một số điều theo Luật số 40/2024/QH15, Luật Nhập cảnh, xuất cảnh, quá cảnh, cư trú của người nước ngoài tại Việt Nam số 47/2014/QH13 đã được sửa đổi, bổ sung một số điều theo Luật số 51/2019/QH14, Luật số 23/2023/QH15 và Luật số 103/2025/QH15, Luật Xuất cảnh, nhập cảnh của công dân Việt Nam số 49/2019/QH14 đã được sửa đổi, bổ sung một số điều theo Luật số 23/2023/QH15, Luật Cư trú số 68/2020/QH14 đã được sửa đổi, bổ sung một số điều theo Luật số 59/2024/QH15, Luật Căn cước số 26/2023/QH15, Luật Lực lượng tham gia bảo vệ an ninh, trật tự ở cơ sở số 30/2023/QH15 đã được sửa đổi, bổ sung theo Luật số 51/2024/QH15, Luật Trật tự, an toàn giao thông đ"
+    },
+    {
+      "id": "local-d29edfc88d3b57f5cf",
+      "kind": "pdf",
+      "domain": "LEGAL",
+      "title": "Văn bản số 23/2023/QH15",
+      "url": "/library-files/d29edfc88d3b57f5cf.pdf",
+      "source": "Thư viện PDF cục bộ",
+      "verified": false,
+      "topics": [],
+      "excerpt": "88 CÔNG BÁO/Số 869 + 870/Ngày 31-7-2023 QUỐC HỘI Luật số: 23/2023/QH15 CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc LUẬT SỬA ĐỔI, BỔ SUNG MỘT SỐ ĐIỀU CỦA LUẬT XUẤT CẢNH, NHẬP CẢNH CỦA CÔNG DÂN VIỆT NAM VÀ LUẬT NHẬP CẢNH, XUẤT CẢNH, QUÁ CẢNH, CƯ TRÚ CỦA NGƯỜI NƯỚC NGOÀI TẠI VIỆT NAM Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam; Quốc hội ban hành Luật sửa đổi, bổ sung một số điều của Luật Xuất cảnh, nhập cảnh của công dân Việt Nam số 49/2019/QH14 và Luật Nhập cảnh, xuất cảnh, quá cảnh, cư trú của người nước ngoài tại Việt Nam số 47/2014/QH13 đã được sửa đổi, bổ sung một số điều theo Luật số 51/2019/QH14. Điều 1. Sửa đổi, bổ sung một số điều của Luật Xuất cảnh, nhập cảnh của công dân Việt Nam 1. Sửa đổi, bổ sung một số khoản của Điều 6 như sau: a) Bổ sung điểm đ vào sau điểm d khoản 1 như sau: “đ) Giấy tờ khác theo quy định tại điều ước quốc tế mà nước Cộng hòa xã hội chủ nghĩa Việt Nam là thành viên.”; b) Sửa đổi, bổ sung khoản 3 như sau: “3. Thông tin trên giấy tờ xuất nhập cảnh bao gồm: a) Ảnh chân dung; b) Họ, chữ đệm và tên; c) Giới tính; d) Nơi sinh; "
+    },
+    {
+      "id": "local-fa10e2fc490c212be3",
+      "kind": "pdf",
+      "domain": "LEGAL",
+      "title": "Văn bản số 28/2026/TT-BTC",
+      "url": "/library-files/fa10e2fc490c212be3.pdf",
+      "source": "Thư viện PDF cục bộ",
+      "verified": false,
+      "topics": [],
+      "excerpt": "CÔNG BÁO/Số 210/Ngày 13-04-2026 13 BỘ TÀI CHÍNH Số: 28/2026/TT-BTC CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc Hà Nội, ngày 27 tháng 3 năm 2026 THÔNG TƯ Quy định mức thu, chế độ thu, nộp phí, lệ phí trong lĩnh vực xuất cảnh, nhập cảnh, quá cảnh, cư trú tại Việt Nam Căn cứ Luật Phí và lệ phí số 97/2015/QH13; Căn cứ Luật Ngân sách nhà nước số 89/2025/QH15; Căn cứ Luật Quản lý thuế số 38/2019/QH14; Căn cứ Luật Nhập cảnh, xuất cảnh, quá cảnh, cư trú của người nước ngoài tại Việt Nam số 47/2014/QH13 được sửa đổi, bổ sung bởi Luật số 51/2019/QH14, Luật số 23/2023/QH15, Luật số 103/2025/QH15, Luật số 118/2025/QH15; Căn cứ Luật Xuất cảnh, nhập cảnh của công dân Việt Nam số 49/2019/QH14 được sửa đổi, bổ sung bởi Luật số 23/2023/QH15, Luật số 118/2025/QH15; Căn cứ Nghị định số 362/2025/NĐ-CP của Chính phủ quy định chi tiết một số điều và biện pháp để tổ chức, hướng dẫn thi hành Luật Phí và lệ phí; Căn cứ Nghị định số 76/2020/NĐ-CP của Chính phủ quy định chi tiết đối tượng, trình tự, thủ tục, thẩm quyền cấp, thu hồi, hủy giá trị sử dụng giấy thông hành được sửa đổi, bổ sung b"
+    },
+    {
+      "id": "local-0e81fb4cba10e2ad6f",
+      "kind": "pdf",
+      "domain": "LEGAL",
+      "title": "Văn bản số 49/2019/QH14",
+      "url": "/library-files/0e81fb4cba10e2ad6f.pdf",
+      "source": "Thư viện PDF cục bộ",
+      "verified": false,
+      "topics": [],
+      "excerpt": "48 CÔNG BÁO/Số 995 + 996/Ngày 26-12-2019 QUỐC HỘI Luật số: 49/2019/QH14 CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc LUẬT XUẤT CẢNH, NHẬP CẢNH CỦA CÔNG DÂN VIỆT NAM Căn cứ Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam; Quốc hội ban hành Luật Xuất cảnh, nhập cảnh của công dân Việt Nam. Chương I QUY ĐỊNH CHUNG Điều 1. Phạm vi điều chỉnh Luật này quy định về xuất cảnh, nhập cảnh của công dân Việt Nam; trách nhiệm của cơ quan quản lý nhà nước về xuất nhập cảnh và cơ quan, tổ chức, cá nhân có liên quan. Điều 2. Giải thích từ ngữ Trong Luật này, các từ ngữ dưới đây được hiểu như sau: 1. Xuất cảnh là việc công dân Việt Nam ra khỏi lãnh thổ Việt Nam qua cửa khẩu của Việt Nam. 2. Nhập cảnh là việc công dân Việt Nam từ nước ngoài vào lãnh thổ Việt Nam qua cửa khẩu của Việt Nam. 3. Hộ chiếu là giấy tờ thuộc quyền sở hữu của Nhà nước, do cơ quan có thẩm quyền của Việt Nam cấp cho công dân Việt Nam sử dụng để xuất cảnh, nhập cảnh, chứng minh quốc tịch và nhân thân. 4. Hộ chiếu có gắn chíp điện tử là hộ chiếu có gắn thiết bị điện tử lưu giữ thông tin được mã hóa của người man"
+    },
+    {
+      "id": "local-e7032efec4bb4a46ea",
+      "kind": "pdf",
+      "domain": "LEGAL",
+      "title": "Văn bản số 64/2025/TT-BTC",
+      "url": "/library-files/e7032efec4bb4a46ea.pdf",
+      "source": "Thư viện PDF cục bộ",
+      "verified": false,
+      "topics": [],
+      "excerpt": "CÔNG BÁO/Số 881 + 882/Ngày 14-7-2025 71 BỘ TÀI CHÍNH BỘ TÀI CHÍNH Số: 64/2025/TT-BTC CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc Hà Nội, ngày 30 tháng 6 năm 2025 THÔNG TƯ Quy định mức thu, miễn một số khoản phí, lệ phí nhằm hỗ trợ cho doanh nghiệp, người dân Căn cứ Luật Phí và lệ phí ngày 25 tháng 11 năm 2015; Căn cứ Nghị định số 29/2025/NĐ-CP ngày 24 tháng 02 năm 2025 của Chính phủ quy định chức năng, nhiệm vụ, quyền hạn và cơ cấu tổ chức của Bộ Tài chính; Theo đề nghị của Cục trưởng Cục Quản lý, giám sát chính sách thuế, phí và lệ phí; Bộ trưởng Bộ Tài chính ban hành Thông tư quy định mức thu, miễn một số khoản phí, lệ phí nhằm hỗ trợ cho doanh nghiệp, người dân. Điều 1. Mức thu một số khoản phí, lệ phí nhằm hỗ trợ cho doanh nghiệp, người dân 1. Kể từ ngày 01 tháng 7 năm 2025 đến hết ngày 31 tháng 12 năm 2026, mức thu một số khoản phí, lệ phí được quy định như sau: Số TT Tên phí, lệ phí Mức thu 1 a) Lệ phí cấp giấy phép thành lập và hoạt động của ngân hàng Bằng 50% mức thu lệ phí quy định tại điểm a Mục 1 Biểu mức thu lệ phí tại khoản 1 Điều 4 Thông tư số 150/201"
+    },
+    {
+      "id": "local-fd62b4f1273e3d21af",
+      "kind": "pdf",
+      "domain": "LEGAL",
+      "title": "Văn bản số 66.22/2026/NQ-CP",
+      "url": "/library-files/fd62b4f1273e3d21af.pdf",
+      "source": "Thư viện PDF cục bộ",
+      "verified": false,
+      "topics": [],
+      "excerpt": "CÔNG BÁO/Số 430/Ngày 23-07-2026 3 CHÍNH PHỦ _________ Số: 66.22/2026/NQ-CP CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM Độc lập - Tự do - Hạnh phúc ______________________________________ Hà Nội, ngày 09 tháng 7 năm 2026 NGHỊ QUYẾT Về phát triển công dân số Căn cứ Luật Tổ chức Chính phủ số 63/2025/QH15; Căn cứ Luật Tổ chức chính quyền địa phương số 72/2025/QH15; Căn cứ Luật Ban hành văn bản quy phạm pháp luật số 64/2025/QH15 được sửa đổi, bổ sung bởi Luật số 87/2025/QH15; Căn cứ Nghị quyết số 206/2025/QH15 của Quốc hội về cơ chế đặc biệt xử lý khó khăn, vướng mắc do quy định của pháp luật; Theo đề nghị của Bộ trưởng Bộ Công an; Chính phủ ban hành Nghị quyết về phát triển công dân số. Điều 1. Phạm vi điều chỉnh, đối tượng áp dụng 1. Nghị quyết này quy định về các nguyên tắc phát triển, đối tượng được hưởng các chính sách về phát triển công dân số; quyền lợi và trách nhiệm của công dân số; chính sách của Nhà nước khuyến khích công dân số; phát triển ứng dụng định danh quốc gia; trách nhiệm của cơ quan quản lý nhà nước, tổ chức, doanh nghiệp cung cấp sản phẩm, dịch vụ số. 2. Nghị quyết này áp dụng"
+    }
+  ]
+}

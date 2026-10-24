@@ -1,0 +1,66 @@
+{
+  "name": "gocdansinh-fullstack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GocDanSinh Fullstack: public triage, SQL-backed administration, approval workflow and staff-only MVP links and cross-domain lexical retrieval",
+  "scripts": {
+    "dev": "nest start --watch",
+    "build": "nest build",
+    "start": "node dist/main.js",
+    "test:static": "node tools/static-check.cjs",
+    "test:frontend": "node tools/verify-frontend.cjs",
+    "setup": "node tools/setup.cjs",
+    "test:integration-static": "node tools/integration-check.cjs",
+    "test:auth": "node tools/test-auth-static.cjs",
+    "test:admin": "node tools/test-admin-static.cjs",
+    "test:workflow": "node tools/test-workflow.cjs",
+    "test:integrity": "node tools/test-project-integrity.cjs",
+    "test:auth-http": "node tools/test-auth-http.cjs",
+    "test:knowledge": "node tools/test-knowledge-static.cjs",
+    "test:knowledge-http": "node tools/test-knowledge-http.cjs",
+    "test:search": "node tools/test-search.cjs",
+    "test:search-http": "node tools/test-search-http.cjs",
+    "test:assistant": "node tools/test-assistant.cjs",
+    "test:assistant-mock": "node tools/test-assistant-ai-mock.cjs",
+    "test:feedback": "node tools/test-feedback.cjs",
+    "test:source-review": "node tools/source/review-evidence.cjs --self-test",
+    "test:source-capture": "node tools/source/collect-sources.cjs --self-test",
+    "test:offline": "node tools/run-offline-tests.cjs",
+    "test:source-http": "node tools/test-source-readiness-http.cjs",
+    "test:assistant-http": "node tools/test-assistant-http.cjs",
+    "test:feedback-http": "node tools/test-feedback-http.cjs",
+    "test:nationwide": "node tools/test-nationwide.cjs",
+    "source:rss-preview": "node tools/source/sync-official-feed.cjs",
+    "source:rss-collect": "node tools/source/sync-official-feed.cjs --apply",
+    "source:rss-db-preview": "node tools/source/import-official-feed.cjs",
+    "source:rss-db-import": "node tools/source/import-official-feed.cjs --apply",
+    "test:source-sync": "node tools/test-source-sync.cjs",
+    "test:ingestion": "python tools/law_rag/test_import_local.py",
+    "official:preview": "node tools/source/official-public-library.cjs",
+    "official:sync": "node tools/source/sync-official-feed.cjs --apply && node tools/source/official-public-library.cjs --apply --download-pdf",
+    "test:official-library": "node tools/test-official-public-library.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/config": "^4.0.0",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/platform-express": "^11.1.0",
+    "mssql": "^11.0.0",
+    "pdf-parse": "^2.4.5",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.0",
+    "@types/express": "^5.0.0",
+    "@types/mssql": "^9.1.7",
+    "@types/node": "^22.14.0",
+    "typescript": "~5.8.3"
+  },
+  "optionalDependencies": {
+    "msnodesqlv8": "^5.1.5"
+  }
+}

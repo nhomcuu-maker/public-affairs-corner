@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Supplemental MANUAL candidate (not verified); original source_capture_report.json deliberately unchanged",
+  "SCAM2": {
+    "filename": "evidence/review/canh_bao_mao_danh_bhxh_2025_v2.pdf",
+    "canonicalUrl": "https://baohiemxahoi.gov.vn/tintuc/Pages/hoat-dong-he-thong-bao-hiem-xa-hoi.aspx?CateID=52&itemID=24971",
+    "sha256": "275EE8C277AD2AC2FCEEC3F17374224C56BA0CCA9290A93DB3BAECDA2853E8C9",
+    "method": "browser_print_pdf",
+    "sourceTitle": "Cảnh báo chiêu trò giả mạo cán bộ BHXH chiếm đoạt tiền gửi trong tài khoản ngân hàng",
+    "sourcePublishedDate": "2025-06-13",
+    "reviewStatus": "CANDIDATE_NOT_VERIFIED",
+    "note": "Image-only 1-page browser PDF. Final contact directory may be missing. Human must compare entire article to official URL before evidence intake; this record does not modify V2 HTML capture."
+  }
+}

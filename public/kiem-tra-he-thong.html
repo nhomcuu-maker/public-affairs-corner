@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Kiểm tra hệ thống nội bộ | Góc Dân Sinh</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f3f6fc;color:#152744;font-family:'Segoe UI',system-ui,sans-serif}
+    header{background:#fff;border-bottom:1px solid #dae4f2;padding:18px max(20px,calc((100vw - 1080px)/2));font-weight:750;color:#1e3a8a}
+    header a{color:#1e3a8a;text-decoration:none}main{max-width:1080px;margin:34px auto;padding:0 20px 44px}
+    h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:19px;color:#1e3a8a;margin:0 0 12px}
+    .lead{color:#64748b;line-height:1.6;margin:0 0 23px}.box{background:#fff;padding:23px;border:1px solid #d6e2ef;border-radius:17px;box-shadow:0 5px 22px #12275009;margin:16px 0}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.stat{background:#f8fbff;border:1px solid #dbeafe;border-radius:12px;padding:18px}
+    .stat strong{display:block;color:#1d4ed8;font-size:29px}.stat span{color:#475569;font-size:13px}
+    .state{padding:13px 16px;border:1px solid #bfdbfe;background:#eff6ff;border-radius:11px;color:#1e40af;font-weight:650;line-height:1.5}
+    .state.fail{color:#991b1b;border-color:#fecaca;background:#fef2f2}
+    table{width:100%;border-collapse:collapse;font-size:14px;text-align:left}th,td{padding:12px 10px;border-bottom:1px solid #e2e8f0}th{color:#334155;background:#f8fafc}td.num{text-align:right;font-variant-numeric:tabular-nums}
+    .hint{color:#64748b;font-size:13px;line-height:1.7}.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:17px}
+    button,.btn{border:0;background:#1d4ed8;color:white;border-radius:10px;padding:11px 17px;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none}
+    a.btn.secondary{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+    .warn{background:#fffbeb;color:#92400e;border:1px solid #fde68a;padding:13px 15px;border-radius:10px;line-height:1.65}
+    @media(max-width:700px){.stats{grid-template-columns:1fr}h1{font-size:22px}main{margin-top:20px}th,td{padding:10px 6px;font-size:12px}}
+  </style>
+</head>
+<body>
+  <header><a href="./">GÓC DÂN SINH</a> &nbsp; / &nbsp; Kiểm tra hệ thống nội bộ</header>
+  <main>
+    <h1>Kiểm tra kết nối và dữ liệu</h1>
+    <p class="lead">Trang dành cho nhà phát triển trên máy cá nhân. Các con số dưới đây được lấy trực tiếp từ API của dự án, không phải dữ liệu mẫu của giao diện.</p>
+    <section class="box" aria-live="polite">
+      <h2>Trạng thái Backend và SQL Server</h2>
+      <div class="state" id="health">Đang kiểm tra kết nối...</div>
+      <div class="actions"><button id="reload" type="button">Kiểm tra lại</button><a class="btn secondary" href="./">Quay về trang chủ</a></div>
+    </section>
+    <section class="stats" aria-label="Số liệu API">
+      <div class="stat"><strong id="domains">—</strong><span>Module nghiệp vụ</span></div>
+      <div class="stat"><strong id="categories">—</strong><span>Danh mục đang hoạt động</span></div>
+      <div class="stat"><strong id="published">—</strong><span>Nội dung đã công bố</span></div>
+    </section>
+    <section class="box">
+      <h2>Dữ liệu theo từng module</h2>
+      <table><thead><tr><th>Module</th><th>Tên</th><th>Danh mục</th><th>Nội dung công khai</th></tr></thead>
+        <tbody id="rows"><tr><td colspan="4">Đang truy vấn...</td></tr></tbody>
+      </table>
+      <p class="hint">Bản nháp trong <code>knowledge_version</code> không được tính vào mục công khai. Số 0 không đồng nghĩa với database trống.</p>
+    </section>
+    <section class="box">
+      <h2>Thao tác tiếp theo: Đối chiếu thủ tục hộ chiếu</h2>
+      <p class="warn">Thủ tục hộ chiếu và nguồn chứng cứ mới nạp là dữ liệu <strong>draft / needs_review</strong>. Không tự sửa trạng thái thành <code>published</code> để làm số liệu trang chủ tăng.</p>
+      <p>Kiểm tra lần lượt: <strong>3 bước thực hiện · 10 thành phần hồ sơ · 6 trường hợp lệ phí · 7 căn cứ pháp lý · 8 snapshot</strong>. Đây là bước xác nhận dữ liệu SQL đã đi qua Backend chính xác.</p>
+      <div class="actions"><a class="btn" href="./kiem-tra-ban-nhap.html">Mở trang kiểm tra bản nháp hộ chiếu →</a></div>
+      <p class="hint">Trang bản nháp yêu cầu <code>DEV_PREVIEW_KEY</code> từ file <code>.env</code> của dự án. Khóa không được đưa vào HTML, URL hoặc gửi cho người khác.</p>
+    </section>
+  </main>
+  <script>
+  (() => {
+    'use strict';
+    const d = id => document.getElementById(id);
+    const codes = ['LEGAL','ADMIN','SCAM'];
+    const names = {LEGAL:'Pháp luật & Quyền lợi', ADMIN:'Thủ tục hành chính', SCAM:'Cảnh báo lừa đảo'};
+    async function request(path) {
+      const r=await fetch('/api/'+path, {headers:{Accept:'application/json'},cache:'no-store'});
+      if(!r.ok)throw new Error('HTTP '+r.status+' - '+path);
+      return r.json();
+    }
+    async function update(){
+      d('reload').disabled=true;
+      d('health').className='state';d('health').textContent='Đang kiểm tra kết nối...';
+      d('domains').textContent=d('categories').textContent=d('published').textContent='—';
+      d('rows').replaceChildren();
+      try {
+        const [health,domains]=await Promise.all([request('health'),request('domains')]);
+        if(!(health.ok===true&&health.db==='connected'))throw new Error('Backend / database chưa ở trạng thái connected');
+        d('health').textContent='Kết nối SQL Server thành công. API Backend đang hoạt động.';
+        d('domains').textContent=String(domains.length);
+        const datasets=await Promise.all(codes.map(async code => {
+          const [categories,items]=await Promise.all([
+            request('categories?domain='+code), request('content?domain='+code)
+          ]);
+          return {code,categories,items};
+        }));
+        d('categories').textContent=String(datasets.reduce((sum,x)=>sum+x.categories.length,0));
+        d('published').textContent=String(datasets.reduce((sum,x)=>sum+x.items.length,0));
+        for (const x of datasets) {
+          const row=document.createElement('tr');
+          const cells=[x.code,names[x.code],String(x.categories.length),String(x.items.length)];
+          cells.forEach((value,i)=>{
+            const td=document.createElement('td');td.textContent=value;
+            if(i>=2)td.className='num';
+            row.append(td);
+          });
+          d('rows').append(row);
+        }
+      } catch(err) {
+        d('health').className='state fail';
+        d('health').textContent='Không đọc đủ dữ liệu API: '+err.message;
+        if(!d('rows').children.length) {
+          const tr=document.createElement('tr');const td=document.createElement('td');
+          td.colSpan=4;td.textContent='Kiểm tra cửa sổ Terminal đang chạy npm run dev.';
+          tr.append(td);d('rows').append(tr);
+        }
+      } finally {d('reload').disabled=false;}
+    }
+    d('reload').addEventListener('click',update);
+    update();
+  })();
+  </script>
+</body>
+</html>

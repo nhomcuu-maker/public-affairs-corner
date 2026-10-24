@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quản trị nội dung | Góc Dân Sinh</title>
+  <link rel="stylesheet" href="./css/gds-admin.css">
+  <script defer src="./js/gds-admin.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./index.html"><span class="brand-mark">GDS</span> GÓC DÂN SINH</a>
+    <div class="top-actions"><span id="whoami">Đang kiểm tra quyền...</span><a href="./index.html">Về trang chủ</a><button id="logout" type="button" hidden>Đăng xuất</button></div>
+  </header>
+  <main class="shell">
+    <div class="heading">
+      <div><p class="eyebrow">KHU VỰC NỘI BỘ · QUẢN TRỊ NỘI DUNG</p><h1>Quản trị nội dung</h1><p>Biên tập và kiểm duyệt các phiên bản nội dung từ SQL Server <strong>GocDanSinh</strong>.</p></div>
+      <span class="pill">BIÊN TẬP · KIỂM DUYỆT · PHÁT HÀNH</span>
+    </div>
+    <section class="notice" role="note">Đây là khu vực dành cho nhân sự được cấp quyền. Nội dung <strong>DRAFT</strong> chưa đủ điều kiện công bố. Chỉ công bố sau khi đã đối chiếu nguồn và được phê duyệt độc lập; các con số ở đây đếm <strong>phiên bản</strong>, không phải số bài đã phát hành.</section>
+    <section id="gate" class="panel" aria-live="polite">Đang kiểm tra phiên đăng nhập và quyền truy cập...</section>
+    <div id="workspace" hidden>
+      <section class="summary panel">
+        <div class="section-head"><h2>Tổng quan theo module</h2><button id="refresh" type="button">Tải lại</button></div>
+        <div id="overview" class="metrics" aria-live="polite"></div>
+      </section>
+      <section class="panel">
+        <div class="section-head"><h2>Danh sách phiên bản nội dung</h2><span class="hint" id="total"></span></div>
+        <form id="filters" class="filters">
+          <label>Module<select name="domain"><option value="">Tất cả</option><option value="LEGAL">Pháp luật & Quyền lợi</option><option value="ADMIN">Thủ tục hành chính</option><option value="SCAM">Cảnh báo lừa đảo</option></select></label>
+          <label>Trạng thái<select name="status"><option value="">Tất cả</option><option value="draft">Draft</option><option value="review">Review</option><option value="rejected">Rejected</option><option value="approved">Approved</option><option value="published">Published</option><option value="archived">Archived</option></select></label>
+          <label class="search">Từ khóa<input name="q" maxlength="100" placeholder="Mã nghiệp vụ hoặc tiêu đề"></label>
+          <button type="submit" class="primary">Tìm kiếm</button>
+        </form>
+        <div class="tablewrap"><table><thead><tr><th>Phiên bản</th><th>Module</th><th>Mã nghiệp vụ / tiêu đề</th><th>Trạng thái</th><th></th></tr></thead><tbody id="items"></tbody></table></div>
+        <nav class="pager" aria-label="Phân trang"><button id="previous" type="button">← Trước</button><span id="pageInfo">Trang 1</span><button id="next" type="button">Tiếp →</button></nav>
+      </section>
+      <section id="detailPanel" class="panel" hidden>
+        <div class="section-head"><h2>Chi tiết bản ghi <span id="detailId"></span></h2><button type="button" id="closeDetail">Đóng</button></div>
+        <div id="workflowActions" class="workflow" aria-live="polite"></div>
+        <div id="details" class="detail"></div>
+      </section>
+    </div>
+  </main>
+  <footer>Góc Dân Sinh · Khu vực biên tập nội bộ · Không tự động công bố nội dung pháp lý.</footer>
+</body>
+</html>

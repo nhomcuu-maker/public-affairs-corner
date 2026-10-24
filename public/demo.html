@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Góc Dân Sinh - DEMO</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f7fb; margin: 0; color: #182638; }
+    main { max-width: 1050px; margin: 40px auto; padding: 20px; }
+    .notice { padding: 18px; background: #fff1d5; border: 2px solid #b87300; border-radius: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 18px; margin-top: 24px; }
+    article { background: white; padding: 24px; border-radius: 14px; box-shadow: 0 3px 12px #0001; }
+    .tag { font-size: 13px; font-weight: bold; color: #9b4c00; }
+    button { padding: 10px 16px; border: 0; border-radius: 8px; background: #175cd3; color: white; cursor: pointer; }
+    #detail { margin-top: 24px; white-space: pre-line; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Góc Dân Sinh — Kiểm thử giao diện</h1>
+  <div class="notice">
+    <strong>DỮ LIỆU DEMO — CHỈ PHỤC VỤ KIỂM THỬ.</strong>
+    <p>Không phải thông tin pháp lý đã được xác minh hoặc công bố.</p>
+  </div>
+  <h2>Kết quả minh họa: 3 nội dung</h2>
+  <div class="grid" id="cards"></div>
+  <section id="detail" aria-live="polite"></section>
+</main>
+<script>
+const records = [
+  {
+    domain: 'Pháp luật & Quyền lợi',
+    title: 'DEMO — Hướng dẫn tra cứu quyền lợi',
+    summary: 'Ví dụ minh họa cách trình bày thông tin quyền lợi.',
+    detail: 'Nội dung thử nghiệm giao diện. Không sử dụng để tư vấn pháp luật.'
+  },
+  {
+    domain: 'Thủ tục hành chính',
+    title: 'DEMO — Hướng dẫn chuẩn bị hồ sơ',
+    summary: 'Ví dụ minh họa bố cục các bước thực hiện thủ tục.',
+    detail: 'Đây là hồ sơ giả lập, không phải hướng dẫn thủ tục chính thức.'
+  },
+  {
+    domain: 'Cảnh báo lừa đảo',
+    title: 'DEMO — Nhận biết tin nhắn giả mạo',
+    summary: 'Ví dụ minh họa cách hiển thị cảnh báo an toàn.',
+    detail: 'Tình huống giả định dùng để thử nghiệm giao diện.'
+  }
+];
+
+const root = document.getElementById('cards');
+for (const item of records) {
+  const card = document.createElement('article');
+  const tag = document.createElement('p');
+  tag.className = 'tag';
+  tag.textContent = 'DEMO · ' + item.domain;
+  const title = document.createElement('h3');
+  title.textContent = item.title;
+  const summary = document.createElement('p');
+  summary.textContent = item.summary;
+  const button = document.createElement('button');
+  button.textContent = 'Xem nội dung DEMO';
+  button.addEventListener('click', () => {
+    document.getElementById('detail').textContent =
+      item.title + '\n\n' + item.detail +
+      '\n\nDỮ LIỆU DEMO — CHƯA XÁC MINH';
+  });
+  card.append(tag, title, summary, button);
+  root.append(card);
+}
+</script>
+</body>
+</html>

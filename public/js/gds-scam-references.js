@@ -1,0 +1,10 @@
+(()=>{'use strict';
+const mount=document.getElementById('scam-official-references');if(!mount)return;
+const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase();
+const h=(tag,txt)=>{const e=document.createElement(tag);if(txt)e.textContent=txt;return e;};
+let items=[];const heading=h('h2','Cảnh báo tham khảo từ cơ quan chức năng');const note=h('p','Đây là liên kết cảnh báo công khai từ cơ quan nhà nước, chưa phải bài đã kiểm duyệt và công bố trong hệ thống Góc Dân Sinh.');const list=h('div');mount.append(heading,note,list);
+function render(q='',cat=''){list.replaceChildren();const words=norm(q).trim().split(/\s+/).filter(Boolean);const result=items.filter(x=>(!cat||x.category===cat||x.category==='general')&&words.every(w=>norm([x.title,x.searchText].join(' ')).includes(w)));const count=h('p',`Tìm thấy ${result.length} nguồn cảnh báo tham khảo.`);list.append(count);for(const x of result){const article=h('article');article.style.cssText='border:1px solid #dbe3f0;border-radius:10px;background:white;padding:14px;margin:10px 0';article.append(h('strong',x.title));const p=h('p');const a=h('a','Đọc cảnh báo tại nguồn Bộ Công an ↗');a.href=x.url;a.target='_blank';a.rel='noopener noreferrer';p.append(a);article.append(p);list.append(article);}if(!result.length)list.append(h('p','Không tìm thấy nguồn cảnh báo tham khảo phù hợp.'));mount.scrollIntoView({behavior:'smooth',block:'nearest'});}
+fetch('/scam-official-references.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(d=>{items=Array.isArray(d.items)?d.items:[];render();}).catch(()=>{list.textContent='Không tải được nguồn cảnh báo tham khảo.';});
+const search=document.getElementById('scamSearch');if(search){window.handleSearch=()=>render(search.value);search.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();e.stopImmediatePropagation();render(search.value);}},true);}
+document.querySelectorAll('[data-scam-category]').forEach(b=>b.addEventListener('click',()=>render('',b.dataset.scamCategory)));
+})();

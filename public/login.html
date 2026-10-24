@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Góc Dân Sinh</title>
+    <!-- FontAwesome cho icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-card {
+            background: #ffffff;
+            padding: 40px 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .login-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .login-subtitle {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+            font-size: 16px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: #3182ce;
+        }
+
+        .forgot-pass {
+            text-align: right;
+            margin-bottom: 25px;
+        }
+
+        .forgot-pass a {
+            color: #3182ce;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .forgot-pass a:hover {
+            text-decoration: underline;
+        }
+
+        /* Nút Đăng nhập bấm chuyển về trang chủ */
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #2b6cb0;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #2c5282;
+        }
+
+        .back-home {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #718096;
+        }
+
+        .back-home a {
+            color: #2b6cb0;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/gds-live.css">
+</head>
+<body>
+
+    <div class="login-card">
+        <h2 class="login-title">ĐĂNG NHẬP</h2>
+        <p class="login-subtitle">Chào mừng trở lại!</p>
+
+        <!-- Thẻ form chứa thuộc tính action="index.html" giúp tự động quay về trang chủ khi bấm nút -->
+        <form id="loginForm">
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="email" name="email" placeholder="Địa chỉ Email" autocomplete="username" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" placeholder="Mật khẩu" autocomplete="current-password" required>
+            </div>
+
+            <div class="forgot-pass">
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+
+            <!-- NÚT ĐĂNG NHẬP ĐÃ ĐƯỢC BỔ SUNG -->
+            <button type="submit" class="btn-submit">Đăng nhập</button>
+        </form>
+        <p data-auth-status role="status" aria-live="polite" style="font-size:13px;margin-top:12px"></p>
+
+        <div class="back-home">
+            Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a>
+        </div>
+    </div>
+
+    <script defer src="./js/gds-live.js"></script>
+    <script defer src="./js/gds-auth.js"></script>
+</body>
+</html>

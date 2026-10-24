@@ -1,0 +1,32 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..');
+const data=JSON.parse(fs.readFileSync(path.join(root,'data/tinh_thanh_2025.json'),'utf8'));
+assert.equal(data.provinces.length,34);
+assert.equal(new Set(data.provinces.map(p=>p.code)).size,34);
+assert(data.provinces.every(p=>/^\d{2}$/.test(p.code)));
+assert.equal(data.provinces.find(p=>p.code==='01').name,'Thành phố Hà Nội');
+assert.equal(data.provinces.find(p=>p.code==='79').name,'Thành phố Hồ Chí Minh');
+const sql=fs.readFileSync(path.join(root,'sql/Danh_Muc_Tinh_Thanh_2025.sql'),'utf8');
+for(const p of data.provinces) assert(sql.includes(`N'${p.code}',N'${p.name}'`),'SQL missing '+p.code);
+assert(sql.includes('DECLARE @Apply BIT = 0'));
+assert(/ROLLBACK TRAN/i.test(sql));
+const page=fs.readFileSync(path.join(root,'public/thu-tuc-hanh-chinh.html'),'utf8');
+assert(page.includes('id="gdsProvince"'));
+assert(page.includes('/js/gds-locations.js'));
+const js=fs.readFileSync(path.join(root,'public/js/gds-locations.js'),'utf8');
+assert(js.includes('/api/locations/provinces'));
+assert(js.includes('/api/procedures'));
+assert(!js.includes('innerHTML'));
+const bridge=fs.readFileSync(path.join(root,'public/js/gds-ai-topic-bridge.js'),'utf8');
+assert(bridge.includes('if(!window.gdsSearchProcedures)'), 'AI bridge must not replace province search');
+const service=fs.readFileSync(path.join(root,'src/procedures/procedures.service.ts'),'utf8');
+assert(service.includes('officeVerificationStatus'));
+const manifest=JSON.parse(fs.readFileSync(path.join(root,'data/ho_so_nguon_doi_chieu.json'),'utf8'));
+for(const r of manifest.evidence){
+ const file=path.join(root,r.file);
+ assert(fs.existsSync(file),r.file);
+ assert.equal(crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').toUpperCase(),r.sha256,r.file);
+ assert.notEqual(r.reviewStatus,'accepted');
+}
+console.log('PASS nationwide 34 provinces, SQL mapping and preview guards, selectors, evidence hashes, no accepted source');

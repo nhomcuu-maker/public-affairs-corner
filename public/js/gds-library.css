@@ -1,0 +1,25 @@
+/* Organized document browser, accessible and consistent on all three pages */
+.gds-lib-organized{max-width:1160px;margin:0 auto;padding:0;background:transparent;border:0;box-shadow:none;color:#193249;font:14px/1.5 system-ui,-apple-system,sans-serif}
+.gds-lib-header{margin-bottom:18px}.gds-lib-header h2{margin:0 0 7px;font-size:clamp(19px,2vw,23px);font-weight:800;color:#1b3659}
+.gds-lib-subtitle{margin:0;color:#5e7188}.gds-lib-controls{display:grid;grid-template-columns:minmax(0,2fr) minmax(180px,1fr);gap:14px;margin-bottom:16px}
+.gds-lib-controls label{display:block;font-size:12px;font-weight:750;color:#29435f;margin-bottom:7px}
+.gds-lib-controls input,.gds-lib-controls select{width:100%;min-width:0;max-width:none;height:46px;margin:0;background:white;padding:10px 12px;border:1px solid #cdd8e5;border-radius:10px;color:#193249;font:inherit}
+.gds-lib-controls input:focus,.gds-lib-controls select:focus,.gds-lib-tab:focus-visible,.gds-lib-show-more:focus-visible{outline:2px solid #2e69ad;outline-offset:2px}
+.gds-lib-tabs{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid #e0e8f1;padding-bottom:14px;margin:6px 0 12px}
+.gds-lib-tab{appearance:none;cursor:pointer;border:1px solid #d9e4ef;border-radius:100px;background:#f4f7fb;color:#234462;padding:8px 13px;font-size:12px;font-weight:700}
+.gds-lib-tab.active,.gds-lib-tab[aria-pressed=true]{background:#265b83;color:white;border-color:#265b83}
+.gds-lib-count{color:#556a7f;font-size:13px;margin:7px 0 16px}.gds-lib-group{margin:0 0 24px}
+.gds-lib-group-heading{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:0 0 12px;border-bottom:1px solid #edf1f5;padding-bottom:9px}
+.gds-lib-group-heading h3{margin:0;color:#173d66;font-size:17px;font-weight:800}.gds-lib-group-total{white-space:nowrap;font-size:12px;color:#60748b}
+.gds-lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,285px),1fr));gap:12px}
+.gds-lib-document{border:1px solid #dce6f0;border-radius:12px;padding:16px;background:#fff;min-width:0;box-shadow:0 2px 10px #16324f08;display:flex;flex-direction:column;gap:10px}
+.gds-lib-document-title{font-size:15px!important;font-weight:750!important;line-height:1.45!important;color:#162e49!important;margin:0!important;overflow-wrap:anywhere}
+.gds-lib-meta{display:flex;flex-wrap:wrap;gap:7px;align-items:center}.gds-lib-chip{background:#eaf4f2;color:#2f6b60;border-radius:5px;padding:4px 7px;font-size:11px;font-weight:750}
+.gds-lib-code{font-size:11px;color:#687c91}.gds-lib-excerpt{font-size:13px;color:#566b80;line-height:1.6;margin:0;overflow-wrap:anywhere}
+.gds-lib-read{font-size:13px;font-weight:750;color:#1d5592;text-decoration:none;margin-top:auto;align-self:flex-start}.gds-lib-read:hover{text-decoration:underline}
+.gds-lib-show-more{padding:9px 12px;border:1px solid #cbdcec;border-radius:8px;background:#f0f6ff;color:#24517d;font-size:13px;font-weight:750;cursor:pointer;margin-top:12px}
+.gds-lib-empty{padding:24px;background:#f8fafc;border:1px dashed #cedae6;border-radius:10px;color:#51677f}
+.gds-lib-footnote{color:#718197;font-size:12px;line-height:1.6;border-top:1px solid #e8eff4;margin:14px 0 0;padding-top:12px}
+.gds-lib-open{display:inline-block;margin-top:14px;color:#17538f;font-weight:750;text-decoration:none}
+.gds-lib-source-notice{font-size:12px;color:#9b641b}
+@media(max-width:680px){.gds-lib-controls{grid-template-columns:1fr}.gds-lib-grid{grid-template-columns:1fr}.gds-lib-document{padding:14px}.gds-lib-tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:13px}.gds-lib-tab{white-space:nowrap}}

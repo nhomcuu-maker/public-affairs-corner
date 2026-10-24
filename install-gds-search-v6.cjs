@@ -1,0 +1,12 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path');
+const root=process.cwd(),target=path.join(root,'public','js','gds-library.js');
+const source=path.join(__dirname,'payload','gds-library.js');
+if(!fs.existsSync(target)||!fs.existsSync(path.join(root,'public','verified-procedures.json')))throw Error('Khong tim thay file V5. Hay chay trong thu muc GocDanSinh da cai V5.');
+const old=fs.readFileSync(target,'utf8');
+if(!old.includes('procedure_verified')||!old.includes('gdsSearchCategory'))throw Error('Ban gds-library.js khong giong V5; dung lai de tranh ghi de nham.');
+const backup=path.join(root,'backup-gds-v6-'+new Date().toISOString().replace(/[:.]/g,'-'));
+fs.mkdirSync(backup,{recursive:true});fs.copyFileSync(target,path.join(backup,'gds-library.js'));
+fs.copyFileSync(source,target);
+console.log('DA SUA BO LOC V6. Ban sao luu:',backup);
+console.log('Kiem tra: node --check .\\public\\js\\gds-library.js');

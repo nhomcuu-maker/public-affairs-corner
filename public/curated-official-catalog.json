@@ -1,0 +1,151 @@
+{
+  "items": [
+    {
+      "title": "Bộ luật Lao động số 45/2019/QH14",
+      "documentCode": "45/2019/QH14",
+      "domain": "LEGAL",
+      "topic": "Lao động, việc làm và an sinh",
+      "searchText": "bộ luật lao động luật lao động 45/2019/QH14 hợp đồng lao động tiền lương nghỉ việc",
+      "url": "https://chinhphu.vn/?docid=198540&pageid=27160",
+      "origin": "official_reference",
+      "validityNote": "Cần kiểm tra tình trạng hiệu lực và văn bản sửa đổi tại nguồn chính thức"
+    },
+    {
+      "title": "Luật Đất đai số 31/2024/QH15",
+      "documentCode": "31/2024/QH15",
+      "domain": "LEGAL",
+      "topic": "Nhà ở, đất đai và xây dựng",
+      "description": "Văn bản pháp luật tại Cổng văn bản Chính phủ. Kiểm tra sửa đổi và hiệu lực tại nguồn.",
+      "searchText": "luật đất đai quyền sử dụng đất sổ đỏ",
+      "url": "https://vanban.chinhphu.vn/?classid=1&docid=211189&pageid=27160&typegroupid=3",
+      "origin": "curated"
+    },
+    {
+      "title": "Nghị định 102/2024/NĐ-CP hướng dẫn Luật Đất đai",
+      "documentCode": "102/2024/NĐ-CP",
+      "domain": "LEGAL",
+      "topic": "Nhà ở, đất đai và xây dựng",
+      "description": "Văn bản hướng dẫn Luật Đất đai, cần kiểm tra tình trạng hiệu lực.",
+      "searchText": "đất đai nhà ở cấp sổ đỏ",
+      "url": "https://vanban.chinhphu.vn/?classid=1&docid=210795&pageid=27160&typegroupid=4",
+      "origin": "curated"
+    },
+    {
+      "title": "Tra cứu thủ tục: Có con nhỏ",
+      "domain": "ADMIN",
+      "topic": "Có con nhỏ",
+      "description": "Đường dẫn đến danh mục thủ tục theo lĩnh vực trên Cổng Dịch vụ công Quốc gia. Đây là trang tra cứu, không phải một hồ sơ thủ tục cụ thể; chọn thủ tục tại nguồn để xem điều kiện và giấy tờ.",
+      "searchText": "khai sinh chăm sóc trẻ em con nhỏ",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-trang-chu-cong-dan.html",
+      "origin": "directory"
+    },
+    {
+      "title": "Tra cứu thủ tục: Học tập",
+      "domain": "ADMIN",
+      "topic": "Học tập",
+      "description": "Đường dẫn đến danh mục thủ tục theo lĩnh vực trên Cổng Dịch vụ công Quốc gia. Đây là trang tra cứu, không phải một hồ sơ thủ tục cụ thể; chọn thủ tục tại nguồn để xem điều kiện và giấy tờ.",
+      "searchText": "học tập tuyển sinh học sinh sinh viên",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-trang-chu-cong-dan.html",
+      "origin": "directory"
+    },
+    {
+      "title": "Tra cứu thủ tục: Việc làm",
+      "domain": "ADMIN",
+      "topic": "Việc làm",
+      "description": "Đường dẫn đến danh mục thủ tục theo lĩnh vực trên Cổng Dịch vụ công Quốc gia. Đây là trang tra cứu, không phải một hồ sơ thủ tục cụ thể; chọn thủ tục tại nguồn để xem điều kiện và giấy tờ.",
+      "searchText": "việc làm thất nghiệp bảo hiểm lao động",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-trang-chu-cong-dan.html",
+      "origin": "directory"
+    },
+    {
+      "title": "Tra cứu thủ tục: Cư trú và giấy tờ tùy thân",
+      "domain": "ADMIN",
+      "topic": "Cư trú và giấy tờ tùy thân",
+      "description": "Đường dẫn đến danh mục thủ tục theo lĩnh vực trên Cổng Dịch vụ công Quốc gia. Đây là trang tra cứu, không phải một hồ sơ thủ tục cụ thể; chọn thủ tục tại nguồn để xem điều kiện và giấy tờ.",
+      "searchText": "cư trú tạm trú thường trú hộ chiếu căn cước",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-trang-chu-cong-dan.html",
+      "origin": "directory"
+    },
+    {
+      "title": "Tra cứu thủ tục: Hôn nhân và gia đình",
+      "domain": "ADMIN",
+      "topic": "Hôn nhân và gia đình",
+      "description": "Đường dẫn đến danh mục thủ tục theo lĩnh vực trên Cổng Dịch vụ công Quốc gia. Đây là trang tra cứu, không phải một hồ sơ thủ tục cụ thể; chọn thủ tục tại nguồn để xem điều kiện và giấy tờ.",
+      "searchText": "hôn nhân đăng ký kết hôn hộ tịch",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-trang-chu-cong-dan.html",
+      "origin": "directory"
+    },
+    {
+      "title": "Tra cứu thủ tục: Điện lực, nhà ở, đất đai",
+      "domain": "ADMIN",
+      "topic": "Điện lực, nhà ở, đất đai",
+      "description": "Đường dẫn đến danh mục thủ tục theo lĩnh vực trên Cổng Dịch vụ công Quốc gia. Đây là trang tra cứu, không phải một hồ sơ thủ tục cụ thể; chọn thủ tục tại nguồn để xem điều kiện và giấy tờ.",
+      "searchText": "điện lực nhà ở đất đai sổ đỏ",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-trang-chu-cong-dan.html",
+      "origin": "directory"
+    },
+    {
+      "title": "Tra cứu thủ tục: Sức khỏe và y tế",
+      "domain": "ADMIN",
+      "topic": "Sức khỏe và y tế",
+      "description": "Đường dẫn đến danh mục thủ tục theo lĩnh vực trên Cổng Dịch vụ công Quốc gia. Đây là trang tra cứu, không phải một hồ sơ thủ tục cụ thể; chọn thủ tục tại nguồn để xem điều kiện và giấy tờ.",
+      "searchText": "y tế khám chữa bệnh bảo hiểm y tế",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-trang-chu-cong-dan.html",
+      "origin": "directory"
+    },
+    {
+      "title": "Tra cứu thủ tục: Phương tiện và người lái",
+      "domain": "ADMIN",
+      "topic": "Phương tiện và người lái",
+      "description": "Đường dẫn đến danh mục thủ tục theo lĩnh vực trên Cổng Dịch vụ công Quốc gia. Đây là trang tra cứu, không phải một hồ sơ thủ tục cụ thể; chọn thủ tục tại nguồn để xem điều kiện và giấy tờ.",
+      "searchText": "phương tiện giấy phép lái xe đăng ký xe",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-trang-chu-cong-dan.html",
+      "origin": "directory"
+    },
+    {
+      "title": "Tra cứu thủ tục: Hưu trí",
+      "domain": "ADMIN",
+      "topic": "Hưu trí",
+      "description": "Đường dẫn đến danh mục thủ tục theo lĩnh vực trên Cổng Dịch vụ công Quốc gia. Đây là trang tra cứu, không phải một hồ sơ thủ tục cụ thể; chọn thủ tục tại nguồn để xem điều kiện và giấy tờ.",
+      "searchText": "hưu trí lương hưu bảo hiểm xã hội",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-trang-chu-cong-dan.html",
+      "origin": "directory"
+    },
+    {
+      "title": "Tra cứu thủ tục: Người thân qua đời",
+      "domain": "ADMIN",
+      "topic": "Người thân qua đời",
+      "description": "Đường dẫn đến danh mục thủ tục theo lĩnh vực trên Cổng Dịch vụ công Quốc gia. Đây là trang tra cứu, không phải một hồ sơ thủ tục cụ thể; chọn thủ tục tại nguồn để xem điều kiện và giấy tờ.",
+      "searchText": "khai tử mai táng tử tuất",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-trang-chu-cong-dan.html",
+      "origin": "directory"
+    },
+    {
+      "title": "Tra cứu thủ tục: Giải quyết khiếu kiện",
+      "domain": "ADMIN",
+      "topic": "Giải quyết khiếu kiện",
+      "description": "Đường dẫn đến danh mục thủ tục theo lĩnh vực trên Cổng Dịch vụ công Quốc gia. Đây là trang tra cứu, không phải một hồ sơ thủ tục cụ thể; chọn thủ tục tại nguồn để xem điều kiện và giấy tờ.",
+      "searchText": "khiếu nại tố cáo giải quyết khiếu kiện",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-trang-chu-cong-dan.html",
+      "origin": "directory"
+    },
+    {
+      "title": "Thủ tục chứng thực bản sao từ bản chính",
+      "domain": "ADMIN",
+      "topic": "Cư trú và giấy tờ tùy thân",
+      "description": "Thông tin thủ tục cụ thể tại Cổng Dịch vụ công Quốc gia; cần kiểm tra cơ quan thực hiện và yêu cầu mới nhất.",
+      "searchText": "chứng thực giấy tờ bản sao bản chính",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-tthc-thu-tuc-hanh-chinh-chi-tiet.html?ma_thu_tuc=101985",
+      "origin": "curated"
+    },
+    {
+      "title": "Thủ tục chứng thực di chúc",
+      "domain": "ADMIN",
+      "topic": "Người thân qua đời",
+      "description": "Thủ tục cụ thể tại Cổng Dịch vụ công Quốc gia.",
+      "searchText": "di chúc thừa kế chứng thực",
+      "url": "https://dichvucong.gov.vn/p/home/dvc-tthc-thu-tuc-hanh-chinh-chi-tiet.html?ma_thu_tuc=3410",
+      "origin": "curated"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+/* 2026-10-11: clean layout without replacing the original header/banner */
+body{background:#f5f7fa}
+.main-container{max-width:1180px!important;margin:25px auto 42px!important;padding:0 20px!important}
+.law-layout{grid-template-columns:minmax(200px,245px) minmax(0,1fr)!important;gap:24px!important;align-items:start}
+.law-content-area{padding:26px!important;border-radius:14px!important;min-width:0;box-shadow:0 4px 14px rgba(18,45,75,.04)!important}
+.law-main-heading{text-align:left!important;font-size:23px!important;text-transform:none!important;margin:0 0 10px!important}
+.gds-page-intro{font-size:14px;color:#536b83;line-height:1.65;margin:0 0 21px}
+.sidebar-category{position:static!important;border-radius:14px!important;box-shadow:none!important}
+.category-btn{font-size:13px!important}.category-btn.active{transform:none!important}
+.gds-admin-documents{background:#fff;border:1px solid #e0e7f0;border-radius:14px;padding:24px;margin:25px 0 10px;box-shadow:0 4px 14px rgba(18,45,75,.04)}
+.gds-admin-documents>h2{font-size:22px;color:#183a60;margin:0 0 8px;text-align:left}
+.procedure-grid{gap:14px!important}.procedure-card{min-height:108px!important}
+.gds-live{margin:18px auto 12px!important;box-shadow:none!important;border-color:#dde6ef!important}
+.gds-live .gds-status{background:#f5f8fd!important;border:1px solid #e3eaf3!important;color:#506780!important;font-size:13px!important;font-weight:500!important}
+.gds-live .gds-warning{background:#fff8e9!important;border-color:#f1dfb5!important;color:#805721!important}
+footer{margin-top:36px!important}
+@media(max-width:780px){.law-layout{grid-template-columns:1fr!important}.sidebar-category{padding:15px!important}.category-list{display:flex!important;flex-flow:row wrap!important;gap:8px!important}.category-btn{flex:1 1 44%!important;min-width:130px!important}.main-container{padding:0 12px!important}.law-content-area,.gds-admin-documents{padding:17px!important}}
+@media(min-width:980px){.procedure-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media(min-width:681px) and (max-width:979px){.procedure-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:680px){.procedure-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:420px){.procedure-grid{grid-template-columns:1fr!important}}

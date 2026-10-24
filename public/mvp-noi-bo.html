@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MVP dữ liệu - Góc Dân Sinh (nội bộ)</title>
+  <link rel="stylesheet" href="./css/gds-mvp.css">
+  <script defer src="./js/gds-mvp.js"></script>
+</head>
+<body>
+  <header><a href="./admin.html">← Quản trị nội dung</a><span>GÓC DÂN SINH · NỘI BỘ</span></header>
+  <main>
+    <p class="eyebrow">KHO TRI THỨC · NỘI BỘ</p>
+    <h1>Hai tình huống MVP – ba kho liên kết</h1>
+    <p class="lede">Đây là trang tra cứu dữ liệu mẫu từ SQL Server dành cho nhân sự đã đăng nhập. Không phải trợ lý AI/RAG và chưa công bố nội dung pháp luật.</p>
+    <div class="warning" role="note"><strong>DRAFT – CHƯA KIỂM CHỨNG</strong><p>Nguồn là đường dẫn tham khảo, chưa có bản chụp và kết quả xác minh nội bộ. Không dùng trang này để đưa ra kết luận pháp lý chính thức.</p></div>
+    <p><a href="./tim-kiem-tri-thuc.html?preview=1"><strong>→ Tra cứu câu hỏi và xem liên kết giữa ba kho</strong></a></p>
+    <div id="status" role="status">Đang xác thực và đọc dữ liệu...</div>
+    <div class="scenarios">
+      <section class="scenario">
+        <h2>01 · Tôi vừa nghỉ việc, có được hưởng trợ cấp thất nghiệp không?</h2>
+        <p>Mục tiêu: LEGAL giải thích điều kiện cần kiểm tra và liên kết ADMIN để chuẩn bị hồ sơ.</p>
+      </section>
+      <section class="scenario">
+        <h2>02 · Có người xưng là BHXH gọi yêu cầu chuyển tiền</h2>
+        <p>Mục tiêu: SCAM chỉ ra dấu hiệu rủi ro, hướng dẫn xử lý an toàn và liên kết quy trình chính thức.</p>
+      </section>
+    </div>
+    <h2>Danh mục bản nháp MVP</h2>
+    <div id="items" class="cards"></div>
+    <h2>Liên kết giữa ba kho</h2>
+    <div id="links" class="links"></div>
+    <section id="detail" class="detail" hidden aria-live="polite"></section>
+  </main>
+</body>
+</html>

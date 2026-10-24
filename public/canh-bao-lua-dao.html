@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảnh Báo Lừa Đảo - Góc Dân Sinh</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --primary-soft: #eff6ff;
+            --danger: #dc2626;
+            --danger-hover: #b91c1c;
+            --danger-bg: #fef2f2;
+            --accent-ai: #10b981;
+            --bg-body: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+            --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- PHẦN BANNER HERO CỐ ĐỊNH PHỦ TRÀN HEADER & TASKBAR --- */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .banner-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .banner-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9) blur(7px);
+            transform: scale(1.08);
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* --- HEADER LOGO --- */
+        .top-header {
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .logo-section:hover {
+            transform: translateY(-1px);
+        }
+
+        .logo-badge {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 11px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .site-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1a365d;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 3px rgba(255,255,255,0.9);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .lang-select {
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid #a0aec0;
+            background-color: rgba(255, 255, 255, 0.9);
+            outline: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .auth-links a {
+            color: #1a365d;
+            font-weight: 700;
+            text-shadow: 0 1px 3px rgba(255,255,255,0.9);
+            transition: color 0.2s;
+        }
+
+        .auth-links a:hover {
+            color: #2b6cb0;
+            text-decoration: underline;
+        }
+
+        /* --- NAVBAR TASKBAR VỚI MEGAMENU / DROPDOWN --- */
+        .navbar {
+            background-color: rgba(163, 194, 240, 0.6);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-item {
+            position: relative;
+            padding: 12px 0;
+        }
+
+        .nav-item > a {
+            color: #0f2b48;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-item:hover > a {
+            color: #000;
+            background-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background-color: #ffffff;
+            min-width: 240px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background-color: #ffffff;
+            border-left: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            color: #2d3748;
+            font-size: 13.5px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a i {
+            color: #3182ce;
+            font-size: 12px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+            padding-left: 24px;
+        }
+
+        /* SEARCH CONTAINER TRÊN BANNER */
+        .search-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 0;
+        }
+
+        /* --- BREADCRUMB --- */
+        .breadcrumb-bar {
+            background-color: var(--primary-soft);
+            padding: 12px 8%;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #dbeafe;
+        }
+
+        .breadcrumb-bar a {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb-bar a:hover {
+            color: var(--primary-light);
+        }
+
+        .breadcrumb-bar i.separator {
+            font-size: 10px;
+            color: #93c5fd;
+        }
+
+        /* --- BANNER KHẨN CẤP (ĐỎ PULSE) --- */
+        .report-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: #ffffff;
+            padding: 18px 24px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.25);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .report-banner:hover {
+            background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 12px 25px rgba(220, 38, 38, 0.35);
+        }
+
+        .pulse-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse-ring 2s infinite;
+            font-size: 16px;
+        }
+
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
+            70% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
+        /* --- SECTION HƯỚNG DẪN KHẨN CẤP --- */
+        .emergency-section {
+            background: linear-gradient(180deg, #fef2f2 0%, #ffffff 100%);
+            padding: 48px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .emergency-container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #fee2e2;
+            border-radius: 20px;
+            padding: 36px 30px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .emergency-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #991b1b;
+            margin-bottom: 28px;
+            line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .steps-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: #fafafa;
+            padding: 16px 20px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .step-item:hover {
+            border-color: #fca5a5;
+            background: #fff5f5;
+            transform: translateX(4px);
+        }
+
+        .step-number {
+            min-width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: white;
+            font-weight: 700;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            box-shadow: 0 4px 8px rgba(220, 38, 38, 0.2);
+        }
+
+        .step-text {
+            font-size: 15px;
+            color: #334155;
+            font-weight: 500;
+            padding-top: 3px;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(135deg, #334155, #1e293b);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.3);
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .main-container {
+            max-width: 1000px;
+            margin: 48px auto;
+            padding: 0 24px;
+            flex: 1;
+        }
+
+        /* SEARCH BOX */
+        .search-box-wrapper {
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+        }
+
+        .search-box-scam {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 6px 8px 6px 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .search-box-scam:focus-within {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        }
+
+        .search-box-scam input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            color: var(--text-main);
+            background: transparent;
+        }
+
+        .search-box-scam input::placeholder {
+            color: #94a3b8;
+        }
+
+        .search-box-scam button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box-scam button:hover {
+            background: var(--primary-light);
+            transform: scale(1.03);
+        }
+
+        /* CHIÊU TRÒ LỪA ĐẢO GRID */
+        .section-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-light);
+            border-radius: 2px;
+        }
+
+        .scam-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+
+        .scam-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scam-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            transition: background 0.3s;
+        }
+
+        .scam-icon {
+            width: 52px;
+            height: 52px;
+            background: #f1f5f9;
+            color: var(--primary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .scam-card-text {
+            font-weight: 700;
+            font-size: 15.5px;
+            color: #1e293b;
+            line-height: 1.4;
+        }
+
+        .scam-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: #cbd5e1;
+        }
+
+        .scam-card:hover::before {
+            background: var(--primary-light);
+        }
+
+        .scam-card:hover .scam-icon {
+            background: #eff6ff;
+            color: var(--primary-light);
+            transform: scale(1.1);
+        }
+
+        .see-more {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+
+        .see-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13.5px;
+            font-weight: 800;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            padding: 10px 22px;
+            border-radius: 20px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .see-more-btn:hover {
+            color: var(--primary);
+            border-color: var(--primary-light);
+            background: #eff6ff;
+        }
+
+        /* --- FLOATING TRỢ LÝ DÂN SINH & THANH CHỮ CHẠY --- */
+        .ai-assistant-wrapper {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .ai-tooltip-banner {
+            background: #ffffff;
+            color: #0f172a;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 13.5px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+            border: 1px solid #10b981;
+            cursor: pointer;
+            white-space: nowrap;
+            animation: slideBanner 8s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ai-tooltip-banner i {
+            color: #10b981;
+        }
+
+        @keyframes slideBanner {
+            0%, 100% {
+                opacity: 0;
+                transform: translateX(20px);
+                visibility: hidden;
+            }
+            15%, 85% {
+                opacity: 1;
+                transform: translateX(0);
+                visibility: visible;
+            }
+        }
+
+        .ai-floating-btn {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 11px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+            line-height: 1.2;
+            padding: 4px;
+            flex-shrink: 0;
+        }
+
+        .ai-floating-btn i {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+
+        .ai-floating-btn:hover {
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 0 12px 28px rgba(16, 185, 129, 0.5);
+        }
+
+        .ai-chat-modal {
+            position: fixed;
+            bottom: 115px;
+            right: 32px;
+            width: 360px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s ease-out forwards;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ai-chat-header {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .ai-chat-body {
+            padding: 16px;
+            height: 250px;
+            overflow-y: auto;
+            font-size: 13.5px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #f8fafc;
+        }
+
+        .chat-msg {
+            padding: 10px 14px;
+            border-radius: 12px;
+            max-width: 85%;
+        }
+
+        .chat-msg.bot {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            align-self: flex-start;
+        }
+
+        .chat-msg.user {
+            background: #059669;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .ai-chat-footer {
+            padding: 12px;
+            display: flex;
+            gap: 8px;
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .ai-chat-footer input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            font-size: 13px;
+        }
+
+        .ai-chat-footer button {
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 28px 20px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+            font-weight: 500;
+        }
+
+        .footer-content span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 850px) {
+            .scam-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 580px) {
+            .scam-grid {
+                grid-template-columns: 1fr;
+            }
+            .top-header, .breadcrumb-bar {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+            .report-banner {
+                font-size: 15px;
+                padding: 14px 16px;
+            }
+            .emergency-title {
+                font-size: 19px;
+            }
+            .emergency-container {
+                padding: 24px 16px;
+            }
+            .ai-assistant-wrapper {
+                right: 16px;
+                bottom: 20px;
+            }
+            .ai-chat-modal {
+                width: calc(100vw - 32px);
+                right: 16px;
+            }
+            .ai-tooltip-banner {
+                display: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="./css/gds-live.css">
+    <link rel="stylesheet" href="./css/gds-scam-categories.css">
+<link rel="stylesheet" href="./css/gds-chat.css">
+</head>
+<body>
+
+    <!-- KHU VỰC HERO BANNER MỜ PHỦ TRÀN HEADER & TASKBAR -->
+    <div class="hero-section">
+        <!-- Ảnh banner mờ mịn làm nền -->
+        <div class="banner-bg">
+            <img src="ảnh banner.jpg" alt="Hero Banner">
+        </div>
+        <!-- Lớp phủ mờ nhẹ -->
+        <div class="banner-overlay"></div>
+
+        <!-- Nội dung nổi đè lên banner -->
+        <div class="hero-content">
+            <!-- 1. HEADER LOGO -->
+            <header class="top-header">
+                <div class="logo-section" onclick="location.href='index.html'">
+                    <div class="logo-badge">GDS</div>
+                    <div class="site-title">GÓC DÂN SINH</div>
+                </div>
+                <div class="header-actions">
+                    <select class="lang-select">
+                        <option value="vi">Tiếng Việt</option>
+                        <option value="en">English</option>
+                    </select>
+                    <div class="auth-links">
+                        <a href="login.html">Đăng nhập</a> | <a href="register.html">Đăng ký</a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- NAVBAR CỐ ĐỊNH TÍCH HỢP DROPDOWN MENU -->
+            <nav class="navbar">
+                <div class="nav-item">
+                    <a href="index.html"><i class="fa-solid fa-house"></i></a>
+                </div>
+
+                <!-- MỤC 1: GIỚI THIỆU -->
+                <div class="nav-item">
+                    <a href="#">GIỚI THIỆU <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="alert('Xem: Tổng quan về GÓC DÂN SINH')">
+                            <i class="fa-solid fa-circle-info"></i> Tổng quan về GÓC DÂN SINH
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MỤC 2: THÔNG TIN DÂN SINH -->
+                <div class="nav-item">
+                    <a href="#">THÔNG TIN DÂN SINH <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="phap-luat-quyen-loi.html">
+                            <i class="fa-solid fa-scale-balanced"></i> Pháp luật & quyền lợi
+                        </a>
+                        <a href="thu-tuc-hanh-chinh.html">
+                            <i class="fa-solid fa-folder-open"></i> Thủ tục hành chính
+                        </a>
+                        <a href="canh-bao-lua-dao.html">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Cảnh báo lừa đảo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MỤC 3: PHẢN HỒI - GÓP Ý -->
+                <div class="nav-item">
+                    <a href="#">PHẢN HỒI - GÓP Ý <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="alert('Gửi phản ánh')">
+                            <i class="fa-solid fa-paper-plane"></i> Gửi phản ánh
+                        </a>
+                        <a href="#" onclick="alert('Tra cứu kết quả trả lời')">
+                            <i class="fa-solid fa-magnifying-glass"></i> Tra cứu kết quả trả lời
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MỤC 4: HỖ TRỢ -->
+                <div class="nav-item">
+                    <a href="#">HỖ TRỢ <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="alert('Xem: Điều khoản sử dụng')">
+                            <i class="fa-solid fa-file-contract"></i> Điều khoản sử dụng
+                        </a>
+                        <a href="#" onclick="alert('Xem: Hướng dẫn sử dụng')">
+                            <i class="fa-solid fa-book"></i> Hướng dẫn sử dụng
+                        </a>
+                        <a href="#" onclick="alert('Báo cáo sự cố')">
+                            <i class="fa-solid fa-bug"></i> Báo cáo sự cố
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- KHU VỰC GIỮ KHỎANG CÁCH BẰNG BANNER -->
+            <div class="search-container"></div>
+        </div>
+    </div>
+
+    <!-- 2. BREADCRUMB THANH ĐIỀU HƯỚNG -->
+    <nav class="breadcrumb-bar">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a> 
+        <i class="fa-solid fa-chevron-right separator"></i> 
+        <span>CẢNH BÁO LỪA ĐẢO</span>
+    </nav>
+
+    <!-- 3. BANNER KHẨN CẤP (GỬI BÁO CÁO - ĐỎ PULSE CHUYỂN SANG BIEU-MAU-BAO-CAO.HTML) -->
+    <a href="bieu-mau-bao-cao.html" class="report-banner">
+        <div class="pulse-icon">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+        <span>GỬI BÁO CÁO / CẢNH BÁO / TÌNH NGHI LỪA ĐẢO</span>
+    </a>
+
+    <!-- 4. HƯỚNG DẪN BẠN BỊ LỪA TIỀN - HÃY LÀM CÁC ĐIỀU NÀY -->
+    <section class="emergency-section">
+        <div class="emergency-container">
+            <h2 class="emergency-title">
+                <i class="fa-solid fa-triangle-exclamation" style="margin-right: 8px;"></i>
+                BẠN BỊ LỪA TIỀN - HÃY LÀM CÁC ĐIỀU NÀY
+            </h2>
+            <div class="steps-wrapper">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Liên hệ ngay Ngân hàng / Cổng thanh toán để yêu cầu phong tỏa tài khoản giao dịch khẩn cấp.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Lưu lại toàn bộ bằng chứng: tin nhắn, số điện thoại, STK kẻ lừa đảo & lịch sử giao dịch.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Trình báo Cơ quan Công an gần nhất hoặc gửi báo cáo trực tuyến qua Cổng thông tin.</div>
+                </div>
+            </div>
+            <a class="btn-download" href="./downloads/cam-nang-phong-chong-lua-dao.pdf"
+               download="cam-nang-phong-chong-lua-dao.pdf" type="application/pdf">
+                <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                TẢI CẨM NANG PHÒNG TRÁNH LỪA ĐẢO (PDF)
+            </a>
+            <p class="gds-handbook-caption">Cẩm nang 3 trang do Góc Dân Sinh biên soạn: các bước xử lý khẩn cấp và nhận diện thủ đoạn phổ biến. Không phải văn bản pháp luật.</p>
+        </div>
+    </section>
+
+    <!-- 5. TÌM KIẾM VÀ CÁC CHIÊU TRÒ LỪA ĐẢO -->
+    <main class="main-container">
+        
+        <!-- Thanh Tìm Kiếm -->
+        <div class="search-box-wrapper">
+            <div class="search-box-scam">
+                <input type="text" id="scamSearch" placeholder="Nhập từ khóa tìm kiếm..." onkeyup="if(event.key === 'Enter') handleSearch()">
+                <button onclick="handleSearch()" title="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- CATEGORIES: concepts for browsing, not published warning articles -->
+        <section class="gds-scam-catalog" aria-labelledby="scamCategoryHeading">
+            <div class="section-header">
+                <h2 class="section-title" id="scamCategoryHeading">NHÓM THỦ ĐOẠN LỪA ĐẢO</h2>
+                <p class="scam-category-note">Chọn một nhóm để xem cảnh báo đã công bố. Các nhóm là danh mục tra cứu, không phải bài cảnh báo đã kiểm chứng.</p>
+            </div>
+            <div class="scam-grid" id="scamCategoryGrid">
+                <button type="button" class="scam-card" data-scam-category="impersonation">
+                    <span class="scam-icon" aria-hidden="true"><i class="fa-solid fa-building-columns"></i></span>
+                    <span class="scam-card-text">Giả danh cơ quan, tổ chức</span>
+                </button>
+                <button type="button" class="scam-card" data-scam-category="jobs">
+                    <span class="scam-icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></span>
+                    <span class="scam-card-text">Tuyển dụng, việc nhẹ lương cao</span>
+                </button>
+                <button type="button" class="scam-card" data-scam-category="investments">
+                    <span class="scam-icon" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></span>
+                    <span class="scam-card-text">Đầu tư, vay tiền, tài chính</span>
+                </button>
+                <button type="button" class="scam-card" data-scam-category="social">
+                    <span class="scam-icon" aria-hidden="true"><i class="fa-solid fa-user-ninja"></i></span>
+                    <span class="scam-card-text">Mạo danh trên mạng xã hội</span>
+                </button>
+                <button type="button" class="scam-card" data-scam-category="phishing">
+                    <span class="scam-icon" aria-hidden="true"><i class="fa-solid fa-link-slash"></i></span>
+                    <span class="scam-card-text">Website giả, đường dẫn phishing</span>
+                </button>
+                <button type="button" class="scam-card" data-scam-category="public-services">
+                    <span class="scam-icon" aria-hidden="true"><i class="fa-solid fa-id-card"></i></span>
+                    <span class="scam-card-text">Giả mạo dịch vụ công, hồ sơ</span>
+                </button>
+            </div>
+            <div class="see-more">
+                <button type="button" class="see-more-btn" id="scamCategoryToggle" aria-controls="scamCategoryGrid" aria-expanded="false">XEM THÊM NHÓM THỦ ĐOẠN</button>
+            </div>
+        </section>
+
+        <!-- COMMUNITY FIRST-AID GUIDES: informative, not SQL-approved official warnings -->
+        <section class="gds-handbook-guides" aria-labelledby="gdsGuideHeading">
+            <div class="gds-guide-heading">
+                <div>
+                    <h2 id="gdsGuideHeading">CẨM NANG HƯỚNG DẪN THEO TÌNH HUỐNG</h2>
+                    <p>Hướng dẫn an toàn cơ bản có thể đọc ngay, không phụ thuộc số lượng bài cảnh báo đã công bố trong cơ sở dữ liệu.</p>
+                </div>
+                <a href="./downloads/cam-nang-phong-chong-lua-dao.pdf" download="cam-nang-phong-chong-lua-dao.pdf" class="gds-guide-download">Tải cẩm nang PDF ↗</a>
+            </div>
+            <div class="gds-guide-grid">
+                <details class="gds-guide-card">
+                    <summary>Đã lộ OTP, mất quyền vào ví hoặc ngân hàng</summary>
+                    <p>Ngừng chia sẻ mã và không chuyển thêm tiền. Gọi ngay số chính thức của ngân hàng/ví để yêu cầu bảo vệ tài khoản, kiểm tra và tra soát giao dịch; lưu bằng chứng và trình báo nếu nghi bị chiếm đoạt.</p>
+                </details>
+                <details class="gds-guide-card">
+                    <summary>Người gọi giả danh cơ quan, BHXH</summary>
+                    <p>Không tin danh tính chỉ dựa vào lời tự giới thiệu. Tự tìm cổng hoặc số liên hệ chính thức để xác minh; không cung cấp OTP hay truy cập đường dẫn do người gọi gửi.</p>
+                </details>
+                <details class="gds-guide-card">
+                    <summary>Mua hàng, shipper, đơn hàng đáng ngờ</summary>
+                    <p>Kiểm tra đơn hàng trực tiếp trên ứng dụng chính thức; không chuyển khoản “phí xác nhận” hay làm theo mã QR, đường dẫn không rõ nguồn.</p>
+                </details>
+                <details class="gds-guide-card">
+                    <summary>Việc làm và cộng tác viên yêu cầu nạp tiền</summary>
+                    <p>Không nộp tiền giữ việc, ứng trước tiền làm nhiệm vụ hay “mua đơn lấy hoa hồng”. Xác minh doanh nghiệp, người tuyển dụng và hợp đồng qua kênh độc lập.</p>
+                </details>
+                <details class="gds-guide-card">
+                    <summary>Đầu tư, trúng thưởng, “phí rút tiền”</summary>
+                    <p>Không nạp thêm để được rút tiền hoặc nhận thưởng. Ngừng giao dịch, lưu lịch sử chuyển khoản và liên hệ đơn vị liên quan qua kênh chính thức.</p>
+                </details>
+                <details class="gds-guide-card">
+                    <summary>Đường dẫn giả, ứng dụng điều khiển điện thoại</summary>
+                    <p>Không nhập mật khẩu/OTP vào link lạ; không cài ứng dụng điều khiển từ xa theo hướng dẫn của người không rõ danh tính. Kiểm tra quyền truy cập và bảo vệ các tài khoản có nguy cơ.</p>
+                </details>
+            </div>
+            <p class="gds-guide-disclaimer">Phần này là kiến thức phòng tránh và xử lý ban đầu, không thay thế xác minh pháp lý hoặc thông báo của cơ quan có thẩm quyền. Các bài đã kiểm duyệt được hiển thị riêng bên dưới.</p>
+        </section>
+
+        <!-- PUBLISHED RECORDS: separate from the category catalog above -->
+        <div class="scam-published-intro">
+            <h2>CẢNH BÁO ĐÃ ĐƯỢC CÔNG BỐ</h2>
+            <p>Các bài dưới đây lấy từ cơ sở dữ liệu, chỉ hiển thị nội dung đã được phê duyệt và công bố.</p>
+            <div class="scam-public-actions">
+                <button type="button" id="scamViewAll" class="scam-view-all">Xem tất cả bài đã công bố</button>
+            </div>
+            <p class="scam-how-to-read">Chọn nhóm thủ đoạn để lọc bài phù hợp, hoặc chọn <strong>Xem tất cả</strong>. Mỗi bài đã công bố chỉ xuất hiện một lần trong danh sách; chọn <strong>Xem chi tiết</strong> để đọc nội dung và nguồn tham khảo.</p>
+        </div>
+        <section id="scam-official-references" style="margin:24px 0;padding:20px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:14px"></section>
+        <div id="scamPublishedMount" aria-live="polite"></div>
+
+    </main>
+    <!-- 7. FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <span><i class="fa-solid fa-globe"></i> www.gocdansinh.com.vn</span>
+            <span><i class="fa-solid fa-headset"></i> Tổng đài liên hệ: XXXXXX</span>
+            <span><i class="fa-solid fa-envelope"></i> Email liên hệ: gocdansinh@gmail.com</span>
+        </div>
+    </footer>
+
+    <script>
+        function handleSearch() {
+            const query = document.getElementById('scamSearch').value.trim();
+            if(query !== "") {
+                alert(`Đang truy xuất dữ liệu cảnh báo liên quan đến từ khóa: "${query}"`);
+            } else {
+                alert("Vui lòng nhập từ khóa để thực hiện tìm kiếm!");
+            }
+        }
+
+        function openScamDetail(title) {
+            alert(`Chi tiết danh mục: [${title}]\n\nHệ thống đang mở thông tin khuyến cáo chi tiết & cách phòng tránh.`);
+        }
+
+        function toggleAIChat() {
+            const modal = document.getElementById('aiChatModal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        function sendAIMessage() {
+            const input = document.getElementById('aiInput');
+            const chatBody = document.getElementById('chatBody');
+            const text = input.value.trim();
+
+            if (text !== '') {
+                const userMsg = document.createElement('div');
+                userMsg.className = 'chat-msg user';
+                userMsg.textContent = text;
+                chatBody.appendChild(userMsg);
+
+                input.value = '';
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                setTimeout(() => {
+                    const botMsg = document.createElement('div');
+                    botMsg.className = 'chat-msg bot';
+                    botMsg.textContent = 'Trợ lý Dân Sinh cảm ơn thông tin của bạn. Khuyến cáo không chuyển tiền hoặc cung cấp mã OTP cho bất kỳ ai yêu cầu!';
+                    chatBody.appendChild(botMsg);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 800);
+            }
+        }
+    </script>
+    <script defer src="./js/gds-live.js"></script>
+<script defer src="./js/gds-chat.js"></script>
+<script defer src="./js/gds-scam-references.js"></script>
+</body>
+</html>

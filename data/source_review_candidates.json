@@ -1,0 +1,33 @@
+{
+  "project": "GocDanSinh",
+  "manifestType": "official_public_sources_for_human_review",
+  "verificationStatus": "web_catalogue_prechecked_not_sql_snapshot_accepted",
+  "doNotPublishAutomatically": true,
+  "sources": [
+    {
+      "businessCode": "GDS-MVP-LEGAL-BHTN",
+      "title": "Employment Law 74/2025/QH15 (Lu at Viec lam)",
+      "url": "https://congbao.chinhphu.vn/van-ban/luat-so-74-2025-qh15-45562.htm",
+      "confirmedMetadata": {
+        "issuedOn": "2025-06-16",
+        "effectiveFrom": "2026-01-01"
+      },
+      "humanReviewNeeded": "Compare current law, relevant sections, applicable conditions, and subsequent implementing regulations."
+    },
+    {
+      "businessCode": "GDS-MVP-ADMIN-TCTN",
+      "title": "Official procedure: Huong tro cap that nghiep (Cap tinh) - HCMC listing",
+      "url": "https://vpcp.dichvucong.gov.vn/p/home/dvc-tthc-thu-tuc-hanh-chinh-chi-tiet.html?ma_thu_tuc=426359",
+      "observedProcedureCode": "1.014748.H29",
+      "humanReviewNeeded": "This is one local listing, NOT an automatically applicable nationwide office, deadline or form; check province and latest local procedure."
+    },
+    {
+      "businessCode": "GDS-MVP-SCAM-MAODANH-BHXH",
+      "title": "VSS portal warning about impersonation and fake social support",
+      "url": "https://baohiemxahoi.gov.vn/tintuc/pages/chuyen-doi-so.aspx?CateID=176&ItemID=25981",
+      "publishedDate": "2026-01-07",
+      "humanReviewNeeded": "Confirm current primary-page content, publication details, and safety wording; do not identify any caller from one sign."
+    }
+  ],
+  "purpose": "source_validation"
+}

@@ -1,0 +1,48 @@
+/* Góc Dân Sinh — shared chat UI. Scoped to avoid changing legacy page styles. */
+.gds-chat,.gds-chat-launch{font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;box-sizing:border-box}
+.gds-chat *,.gds-chat *::before,.gds-chat *::after{box-sizing:border-box}
+.gds-chat{color:#19354a;background:#fff;border:1px solid #d8e5eb;border-radius:20px;box-shadow:0 16px 44px #17374a22;display:flex;flex-direction:column;overflow:hidden;text-align:left;min-width:0}
+.gds-chat[hidden]{display:none!important}
+.gds-chat-popup{position:fixed;right:22px;bottom:88px;width:min(430px,calc(100vw - 28px));height:min(650px,calc(100dvh - 115px));z-index:2147482000}
+.gds-chat-full{height:min(75dvh,760px);min-height:450px;max-width:880px;margin:0 auto;border-radius:20px}
+.gds-chat-header{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#126c68;color:#fff;padding:15px 17px;min-height:64px;flex-shrink:0}
+.gds-chat-title{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:720}
+.gds-chat-symbol{display:grid;place-items:center;border-radius:10px;width:32px;height:32px;background:#ffffff2d;font-size:20px}
+.gds-chat-actions{display:flex;align-items:center;gap:6px}
+.gds-chat-actions button{background:transparent;border:0;color:#fff;font:inherit;font-size:12px;border-radius:8px;padding:7px 8px;cursor:pointer}
+.gds-chat-actions button:hover{background:#ffffff25}
+.gds-chat-actions .gds-chat-close{font-size:25px;line-height:20px;width:32px}
+.gds-chat-messages{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:20px 16px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;background:#f5f8fa}
+.gds-chat-bubble{width:fit-content;max-width:92%;border-radius:16px;padding:13px 15px;line-height:1.58;font-size:14px;overflow-wrap:anywhere}
+.gds-chat-bubble p{margin:0 0 9px}.gds-chat-bubble p:last-child{margin-bottom:0}
+.gds-chat-bot{border:1px solid #e1e8ef;border-bottom-left-radius:4px;background:#fff;color:#213b4d}
+.gds-chat-user{align-self:flex-end;border-bottom-right-radius:4px;background:#137a76;color:#fff}
+.gds-chat-summary{white-space:pre-line;font-weight:510}
+.gds-chat-section{margin-top:13px}
+.gds-chat-section strong,.gds-chat-sources strong{display:block;font-size:13px;font-weight:740;margin:0 0 5px;color:#174c60}
+.gds-chat-section ul{padding-left:18px;margin:6px 0 0;display:grid;gap:5px}
+.gds-chat-sources{display:flex;flex-direction:column;gap:5px;padding-top:12px;border-top:1px solid #e4eaf0;margin-top:14px}
+.gds-chat-sources a{font-size:13px;font-weight:550;color:#086f83!important;text-decoration:underline;text-underline-offset:2px;word-break:break-word}
+.gds-chat-subtle,.gds-chat-draft{font-size:12px;color:#667a89;margin-top:10px!important}
+.gds-chat-draft{color:#805014;background:#fff3de;padding:6px;border-radius:7px}
+.gds-chat-pending{color:#587387;font-style:italic}
+.gds-chat-bottom{border-top:1px solid #e1e9ec;background:white;padding:12px 15px 13px;flex-shrink:0}
+.gds-chat-hint{font-size:11px;line-height:1.45;color:#5e7583;margin:0 0 9px!important}
+.gds-chat-form{display:flex;align-items:end;gap:9px;margin:0}
+.gds-chat-input{min-width:0;flex:1;font-family:inherit!important;font-size:14px!important;line-height:1.5!important;min-height:43px!important;max-height:100px!important;height:43px!important;resize:none!important;border:1px solid #cbdce4!important;border-radius:11px!important;padding:10px 12px!important;color:#173548!important;background:white!important;box-shadow:none!important}
+.gds-chat-submit{align-self:stretch;padding:0 19px!important;border:0!important;border-radius:11px!important;background:#126c68!important;color:#fff!important;font:inherit!important;font-size:14px!important;font-weight:670!important;min-height:43px;cursor:pointer}
+.gds-chat-submit:disabled{opacity:.5;cursor:wait}
+.gds-chat-notice{min-height:0;font-size:12px;color:#a64a1a;margin:5px 0 0!important}
+.gds-chat-notice:empty{display:none}
+.gds-chat-staff{padding-bottom:9px;font-size:12px;color:#506f7b}
+.gds-chat-staff summary{cursor:pointer}.gds-chat-staff label{display:flex;align-items:center;gap:8px;padding-top:8px;font-size:12px;font-weight:400}.gds-chat-staff input{width:15px;height:15px}
+.gds-chat-launch{position:fixed;z-index:2147481999;right:22px;bottom:22px;border:0;border-radius:100px;box-shadow:0 8px 26px #18485e44;color:#fff;background:#126c68;padding:13px 18px;font-size:14px;font-weight:750;cursor:pointer}
+.gds-chat-launch:hover{background:#0d5754}
+.gds-chat-launch[aria-expanded="true"]{display:none}
+.gds-chat button:focus-visible,.gds-chat textarea:focus-visible,.gds-chat-launch:focus-visible{outline:3px solid #83c9e4!important;outline-offset:2px!important}
+.gds-chat-page{margin:0;background:#f4f7fa;color:#19354a;font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif}
+.gds-chat-page-header{background:#126c68;color:#fff;padding:18px clamp(18px,6vw,65px);display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;align-items:center}
+.gds-chat-page-header a{color:#fff;text-decoration:none;font-weight:650}
+.gds-chat-page-main{max-width:940px;margin:26px auto 60px;padding:0 17px}
+.gds-chat-page-main h1{font-size:clamp(24px,3vw,32px);margin:0 0 8px}.gds-chat-page-main>p{font-size:14px;line-height:1.6;color:#61798a;margin:0 0 19px}
+@media(max-width:640px){.gds-chat-popup{bottom:0;right:0;width:100%;height:100dvh;border-radius:0}.gds-chat-launch{right:14px;bottom:15px}.gds-chat-full{height:calc(100dvh - 205px);min-height:360px}.gds-chat-header{padding:13px}.gds-chat-actions button{font-size:11px}.gds-chat-messages{padding:14px 10px}.gds-chat-bubble{max-width:97%}}

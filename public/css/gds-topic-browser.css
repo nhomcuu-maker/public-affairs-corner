@@ -1,0 +1,30 @@
+/* Shared 3 x 3 taxonomy. Each page has one navigation and one result set. */
+.gds-topic-app{max-width:1140px;margin:24px auto 36px;padding:0 16px;color:#172b4d;font-family:system-ui,'Segoe UI',sans-serif}
+.gds-topic-app *{box-sizing:border-box}
+.gds-topic-layout{display:grid;grid-template-columns:minmax(225px,270px) minmax(0,1fr);gap:20px;align-items:start}
+.gds-topic-nav,.gds-topic-body{background:#fff;border:1px solid #d9e4f0;border-radius:16px;box-shadow:0 5px 22px rgba(35,65,92,.06);padding:20px;min-width:0}
+.gds-topic-nav h2{font-size:17px;font-weight:800;line-height:1.4;margin:0 0 8px;color:#14385f}
+.gds-topic-help{font-size:13px;color:#62748b;line-height:1.6;margin:0 0 16px}
+.gds-topic-menu{display:grid;gap:9px}
+.gds-topic-button{display:flex;gap:10px;align-items:center;justify-content:space-between;width:100%;text-align:left;background:#f8fafc;border:1px solid #dce6f1;border-radius:10px;padding:12px 13px;color:#253b55;font-size:14px;font-weight:650;line-height:1.45;cursor:pointer}
+.gds-topic-button[aria-pressed=true]{background:#e9f3ff;border-color:#397cc1;color:#174e91;box-shadow:inset 3px 0 #2a72bb}
+.gds-topic-button:hover{border-color:#3d83c4}
+.gds-topic-count{font-size:11px;border-radius:999px;padding:3px 8px;background:#e3eaf2;color:#36506d;white-space:nowrap}
+.gds-topic-body h2{font-size:22px;font-weight:800;color:#163963;margin:0 0 12px;line-height:1.4}
+.gds-topic-search{display:flex;gap:10px;margin:13px 0 12px}
+.gds-topic-search input{min-width:0;width:100%;padding:12px;border:1px solid #cbd7e6;border-radius:10px;font-size:14px}
+.gds-topic-search button{background:#1761a7;color:white;border:0;border-radius:10px;padding:10px 15px;font-weight:650;cursor:pointer;white-space:nowrap}
+.gds-topic-status{font-size:13px;color:#526985;line-height:1.6;margin:10px 0 18px}
+.gds-topic-section{margin:20px 0;border-top:1px solid #edf1f5;padding-top:18px}
+.gds-topic-section h3{font-size:17px;color:#21446f;margin:0 0 12px;font-weight:750}
+.gds-topic-article{padding:15px 16px;margin:9px 0;border:1px solid #e0e8f1;border-radius:11px;background:#fff}
+.gds-topic-article h4{font-size:15px;margin:0 0 9px;line-height:1.5;color:#183a66}
+.gds-topic-article p{font-size:13px;color:#596d83;line-height:1.6;margin:0 0 9px;overflow-wrap:anywhere}
+.gds-topic-article a,.gds-topic-article button{font-size:13px;color:#185ea5;background:none;border:0;text-decoration:underline;font-weight:700;cursor:pointer;padding:0}
+.gds-topic-empty{background:#f3f7fb;border:1px solid #d9e5f1;border-radius:10px;padding:14px 15px;font-size:13px;line-height:1.6;color:#506987}
+.gds-topic-caution{font-size:12px;color:#63768b;line-height:1.7;margin-top:17px}
+.gds-topic-dialog{border:0;border-radius:16px;box-shadow:0 20px 70px rgba(0,0,0,.22);max-width:min(720px,93vw);max-height:85vh;padding:25px;overflow:auto;color:#1c324e}
+.gds-topic-dialog::backdrop{background:rgba(12,30,49,.60)}
+.gds-topic-dialog h2{font-size:20px;line-height:1.45;margin:0 0 14px}.gds-topic-dialog p{line-height:1.75;white-space:pre-wrap}
+.gds-topic-dialog button{float:right;border:0;background:#e7eff8;color:#174a7e;border-radius:8px;padding:8px 14px;cursor:pointer}
+@media(max-width:730px){.gds-topic-layout{grid-template-columns:1fr}.gds-topic-app{margin:15px auto}.gds-topic-nav,.gds-topic-body{padding:16px}.gds-topic-search{flex-wrap:wrap}.gds-topic-search button{width:100%}}

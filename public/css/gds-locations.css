@@ -1,0 +1,11 @@
+/* National province selector: deliberately no fake addresses or processing statuses. */
+.gds-location-panel{max-width:1050px;margin:12px auto 4px;padding:19px;background:#fff;border:1px solid #cbd5e1;border-radius:12px;box-shadow:0 2px 7px #0f172a0d;color:#1e293b}
+.gds-location-panel label{display:block;font-weight:700;margin-bottom:9px;color:#1e3a8a}
+.gds-location-panel select{width:100%;max-width:480px;padding:11px;border:1px solid #94a3b8;border-radius:7px;background:#fff;color:#172554;font-size:15px}
+.gds-location-panel p{margin:10px 0 0;line-height:1.5;font-size:14px}
+.gds-location-results{max-width:1050px;margin:16px auto 26px;padding:20px;border:1px solid #cbd5e1;background:#fff;border-radius:12px;color:#1e293b}
+.gds-location-results h3{margin:0 0 10px;color:#1e3a8a;font-size:19px}
+.gds-location-results .gds-result-item{padding:12px;border-top:1px solid #e2e8f0}
+.gds-location-results a{color:#1d4ed8;text-decoration:underline}
+.gds-location-results .gds-empty{background:#f8fafc;padding:16px;border-radius:8px;line-height:1.6}
+@media(max-width:700px){.gds-location-panel,.gds-location-results{margin:12px 14px;padding:15px}}

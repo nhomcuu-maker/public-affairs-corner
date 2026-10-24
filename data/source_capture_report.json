@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 2,
+  "project": "GocDanSinh",
+  "createdAtUtc": "2026-10-10T08:08:20.708Z",
+  "verified": false,
+  "published": false,
+  "dbChanged": false,
+  "modulesWithCandidates": [
+    "LEGAL",
+    "SCAM"
+  ],
+  "potentialDemoCoverage": false,
+  "warning": "No item has been verified. Do NOT use old generated SQL to certify these files.",
+  "records": [
+    {
+      "key": "LEGAL",
+      "module": "LEGAL",
+      "businessCode": "GDS-MVP-LEGAL-BHTN",
+      "canonicalUrl": "https://congbao.chinhphu.vn/van-ban/luat-so-74-2025-qh15-45562.htm",
+      "capturedUrl": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/74qh15.signed.pdf",
+      "filename": "evidence/review/luat_viec_lam_74_2025.pdf",
+      "bytes": 1230315,
+      "sha256": "64BC8C066AFEA584CD661D040B5E12996E797A9DC7460F1A0C12181D98F7E3C7",
+      "status": "CANDIDATE_NOT_VERIFIED",
+      "method": "downloaded",
+      "capturedAtUtc": "2026-10-10T08:06:49.425Z",
+      "check": "PDF header + size OK; human must check document identity/content",
+      "reviewerNote": "Mo PDF, kiem tra Luat so 74/2025/QH15 va cac dieu BHTN; doi chieu hieu luc 01/01/2026.",
+      "notices": []
+    },
+    {
+      "key": "ADMIN",
+      "module": "ADMIN",
+      "status": "PENDING",
+      "error": "Procedure text not present; likely JS-only shell",
+      "notices": [
+        "Old file evidence/review/thu_tuc_tro_cap_that_nghiep_trang_web.html kept untouched; NOT accepted: Procedure text not present; likely JS-only shell"
+      ],
+      "canonicalUrl": "https://vpcp.dichvucong.gov.vn/p/home/dvc-chi-tiet-thu-tuc-hanh-chinh.html?ma_thu_tuc=1.014748",
+      "reviewerNote": "HTML co the la khung JS rong. Chi duyet neu co noi dung thu tuc, ma, ho so va dia phuong."
+    },
+    {
+      "key": "SCAM1",
+      "module": "SCAM",
+      "status": "PENDING",
+      "error": "TIMEOUT after 45s (origin may be slow/blocked)",
+      "notices": [
+        "Attempt 1/2: TIMEOUT after 45s (origin may be slow/blocked)",
+        "Attempt 2/2: TIMEOUT after 45s (origin may be slow/blocked)"
+      ],
+      "canonicalUrl": "https://baohiemxahoi.gov.vn/tintuc/Pages/hoat-dong-he-thong-bao-hiem-xa-hoi.aspx?CateID=52&ItemID=25391",
+      "reviewerNote": "Doi chieu chinh xac bai canh bao tai BHXH, khong dung trang chu hoac trang loi."
+    },
+    {
+      "key": "SCAM2",
+      "module": "SCAM",
+      "businessCode": "GDS-MVP-SCAM-MAODANH-BHXH",
+      "canonicalUrl": "https://baohiemxahoi.gov.vn/tintuc/Pages/hoat-dong-he-thong-bao-hiem-xa-hoi.aspx?CateID=52&itemID=24971",
+      "capturedUrl": null,
+      "filename": "evidence/review/canh_bao_mao_danh_bhxh.html",
+      "bytes": 135238,
+      "status": "PENDING",
+      "method": "existing_local_file",
+      "capturedAtUtc": null,
+      "check": "Basic topic checks passed; manual review still required",
+      "reviewerNote": "Bai ngay 13/06/2025, ve gia mao can bo BHXH, tai khoan ngan hang.",
+      "notices": [
+        "Hash mismatch discovered during project consolidation; the existing HTML also lacks independently verified relevant article content."
+      ],
+      "expectedSha256FromPriorReport": "5A36E230BE0BD25FCA0C14CAF648AB4B322B63637C4FADC9FB6E1336DE575D43",
+      "observedSha256OfLocalFile": "5249F757ED63BB885FBB6312138DB7974D2E4A2FE52C84BACFD783026E71E6AB",
+      "error": "Archived capture report SHA-256 does not match current local HTML file. Do not treat this source as captured or verified; re-acquire from official source and check article content."
+    }
+  ],
+  "stage": "source_capture"
+}

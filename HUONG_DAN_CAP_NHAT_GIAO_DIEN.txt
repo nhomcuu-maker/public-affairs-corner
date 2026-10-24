@@ -1,0 +1,26 @@
+GOC DAN SINH - CAP NHAT GIAO DIEN GOC + TRANG KIEM TRA RIENG
+==========================================================
+
+Muc dich:
+- Trang chu va ba trang module giu nguyen giao dien ban dau, khong tu hien khung thong bao SQL/0-0-0.
+- Trang kiem tra rieng (localhost): http://127.0.0.1:3001/kiem-tra-he-thong.html
+- Chi khi tim kiem moi hien ket qua lay tu API, khong hien ban nhap ra website cong khai.
+- Buoc tiep theo: trang /kiem-tra-ban-nhap.html kiem tra 3 buoc, 10 ho so, 6 phi, 7 van ban, 8 snapshots bang DEV_PREVIEW_KEY.
+
+Neu dang dung ban Fullstack cu da ket noi thanh cong:
+1. Dung Terminal NestJS bang Ctrl+C.
+2. Giai nen file GocDanSinh_BanVa_GiaoDienGoc.zip VAO CHINH thu muc GocDanSinh hien dang chay (co package.json), dong y ghi de file trung ten.
+3. Mo Terminal trong chinh thu muc GocDanSinh:
+   npm run test:frontend
+   npm run build
+   npm run dev
+4. Xoa cache giao dien bang Ctrl+F5. Mo http://127.0.0.1:3001/
+5. Mo http://127.0.0.1:3001/kiem-tra-he-thong.html, kiem tra API.
+6. Bam Xem ban nhap, nhap DEV_PREVIEW_KEY trong .env cua du an (khong gui key ra ngoai).
+
+KHONG can chay lai 2 file SQL, KHONG can tao lai database.
+File .env cua ban khong nam trong goi ban va va se khong bi ghi de.
+Dia chi localhost:3001 la dia chi dung, KHONG dung Go Live :5500.
+
+Luu y: Hai trang kiem tra chi mo o moi truong development tren localhost.
+Khong phai trang quan tri co dang nhap; khong su dung de trien khai cong khai.
