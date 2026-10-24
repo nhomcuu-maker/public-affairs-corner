@@ -28,7 +28,7 @@
     const observer = new MutationObserver(attach);
     observer.observe(target, {childList:true,subtree:true});
     // Show the verified government reference only for closely matching queries.
-    fetch('/curated-official-catalog.json', {cache:'no-store'}).then(r => r.ok ? r.json() : {items:[]}).then(data => {
+    fetch('./curated-official-catalog.json', {cache:'no-store'}).then(r => r.ok ? r.json() : {items:[]}).then(data => {
       const item = (data.items || [])[0];
       if (!item || !safeLink(item.url)) return;
       const panel = document.createElement('section');
