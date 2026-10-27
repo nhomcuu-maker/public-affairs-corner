@@ -6,7 +6,7 @@ import {
   AssistantEvidence, createSystemPrompt, enforceSafetyFloor, evidenceFromSearch,
   parseModelAnswer, redactSecrets, retrievalFallback, validateQuestion,
 } from './assistant.logic';
-import { evidenceMatchesQuestion, financialEmergencyFirstAid, otpFirstAid, readRecentQuestions, routeScope, scopeReply, scamClarification, shouldClarifyScam } from './assistant.triage';
+import { citizenEmergencyFirstAid, evidenceMatchesQuestion, financialEmergencyFirstAid, otpFirstAid, readRecentQuestions, routeScope, scopeReply, scamClarification, shouldClarifyScam, gdsEvidenceFits, gdsTrustedEvidence, gdsSafeGuidance, gdsUnsupportedClaim } from './assistant.triage';
 
 @Injectable()
 export class AssistantService {
@@ -20,6 +20,13 @@ export class AssistantService {
       throw new Error('Lĩnh vực không hợp lệ.');
     const safeQuestion = redactSecrets(question);
     const recent = readRecentQuestions(body.history).map(redactSecrets);
+    const citizenEmergency = citizenEmergencyFirstAid(safeQuestion);
+    if (citizenEmergency) return {
+      mode: staff ? 'STAFF_DRAFT_PREVIEW' : 'PUBLISHED_ONLY', status: 'SAFETY_GUIDANCE',
+      modelActive: false, intent: 'SAFETY', urgentSafety: true,
+      missingInformation: [], evidence: [], links: [], answer: citizenEmergency,
+      disclaimer: 'Hướng dẫn an toàn ban đầu, không thay thế cơ quan cứu hộ hoặc nhân viên y tế.',
+    };
     const scope = routeScope(safeQuestion, recent);
     // Never depend on SQL Server or a live LLM to provide time-critical OTP first aid.
     const otpSafety = financialEmergencyFirstAid(safeQuestion, recent) || otpFirstAid(safeQuestion, recent);
@@ -54,7 +61,7 @@ export class AssistantService {
     // Official-site links are supplementary references, never SQL-approved publications.
     const referenceEvidence = staff ? [] : catalogEvidence(safeQuestion, String(domain), sqlEvidence.length)
       .filter(e => evidenceMatchesQuestion(safeQuestion, e));
-    const evidence = [...sqlEvidence, ...referenceEvidence];
+    const evidence = [...sqlEvidence, ...referenceEvidence].filter(e => gdsEvidenceFits(safeQuestion, e));
     const fallback = retrievalFallback(safeQuestion, evidence, staff);
     const base = {
       mode: staff ? 'STAFF_DRAFT_PREVIEW' : 'PUBLISHED_ONLY', retrieval: result.retrieval,
@@ -64,6 +71,22 @@ export class AssistantService {
         ? 'CHỈ DÙNG NỘI BỘ: bản nháp và nguồn chưa xác minh; không phải tư vấn pháp lý hoặc kết luận chính thức.'
         : 'Trợ lý thông tin không thay thế cơ quan có thẩm quyền. Tài liệu SQL đã duyệt và liên kết tham khảo bên ngoài có trạng thái khác nhau; liên kết ngoài chưa được xác minh theo quy trình SQL.',
     };
+    // GDS_FULLFIX_20261027: public legal information must not rely on unverified model memory.
+    // Set AI_ALLOW_UNVERIFIED_GENERAL=1 ONLY for explicitly opted-in development experiments.
+    const gdsVerified = evidence.filter(e => gdsTrustedEvidence(e));
+    if (!staff && gdsVerified.length === 0 && process.env.AI_ALLOW_UNVERIFIED_GENERAL !== '1') {
+      const focused = gdsSafeGuidance(safeQuestion);
+      const guardedAnswer = focused || fallback;
+      return { ...base, status: 'RETRIEVAL_ONLY', modelActive: false,
+        answer: { ...guardedAnswer, citationIds: [] },
+        notice: 'Chưa có đoạn nguồn SQL đã công bố và được xác minh cho câu hỏi; hiển thị hướng dẫn an toàn, không khẳng định quy định.' };
+    }
+    // GDS_QUICKFIX_20261027: reference-only evidence cannot support freeform official legal guidance.
+    // Return the grounded fallback *before* calling slow Ollama (the old guard below remains defensive).
+    if (evidence.length && evidence.every(e => e.sourceStatus === 'reference_not_verified_in_sql')) {
+      return { ...base, status: 'RETRIEVAL_ONLY', answer: fallback, modelActive: false,
+        notice: 'Đã tìm thấy liên kết tham khảo liên quan nhưng chưa kiểm duyệt trong SQL; vui lòng kiểm tra tại nguồn.' };
+    }
     // Lack of published evidence is NOT a reason to suppress the real model.
     // The model may offer non-authoritative general guidance but no legal specifics or fake citations.
     // Local Ollama needs no paid API key; the token 'ollama' is ignored by localhost.
@@ -186,6 +209,10 @@ this.logger.log('AI_FORMAT_DIAGNOSTIC ' + JSON.stringify(diagnostic));
       const parsed = parsedBase ? enforceSafetyFloor(safeQuestion, parsedBase) : null;
       if (!parsed) return { ...base, status: 'PROVIDER_UNAVAILABLE', answer: fallback, modelActive: false,
         notice: 'Mô hình không trả về JSON hợp lệ hoặc không dẫn nguồn phù hợp; đang hiển thị kết quả tra cứu dự phòng.' };
+      if (!staff && gdsUnsupportedClaim(safeQuestion, parsed, evidence)) {
+        return { ...base, status: 'RETRIEVAL_ONLY', answer: fallback, modelActive: false,
+          notice: 'Chi tiet dinh luong trong cau tra loi AI chua duoc chung minh boi tai lieu; su dung ket qua tra cuu.' };
+      }
       return { ...base, status: 'AI_GENERATED', answer: parsed, modelActive: true,
         evidence: usedEvidence.length ? base.evidence : [], links: usedEvidence.length ? base.links : [],
         notice: usedEvidence.length

@@ -1,9 +1,11 @@
+
 'use strict';
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const ts = require('typescript');
 const root = path.resolve(__dirname, '..');
+
 const load = (p,deps={}) => {
   const code = ts.transpileModule(fs.readFileSync(path.join(root,p),'utf8'),{
     compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,experimentalDecorators:true,emitDecoratorMetadata:false}
@@ -16,8 +18,15 @@ const search=load('src/search/search.logic.ts');
 const logic=load('src/assistant/assistant.logic.ts',{'../search/search.logic':search});
 const triage=load('src/assistant/assistant.triage.ts',{'../search/search.logic':search});
 const svcClass=load('src/assistant/assistant.service.ts',{
-  '@nestjs/common':{Injectable:()=>x=>x,Logger:class{warn(){}},ServiceUnavailableException:class extends Error{}},
-  '../search/search.service':{SearchService:class{}},'./assistant.logic':logic,'./assistant.triage':triage
+  '@nestjs/common':{
+    Injectable:()=>x=>x,
+    Logger:class{warn(){} log(){} debug(){}},
+    ServiceUnavailableException:class extends Error{}
+  },
+  '../search/search.service':{SearchService:class{}},
+  './assistant.logic':logic,
+  './assistant.triage':triage,
+  './assistant.catalog':{catalogEvidence:()=>[]}
 }).AssistantService;
 const doc={versionId:6,businessCode:'GDS-MVP-SCAM-MAODANH-BHXH',domain:'SCAM',title:'Cảnh báo cuộc gọi giả danh bảo hiểm xã hội đòi chuyển tiền',summary:'Bảo hiểm xã hội cảnh báo giả danh cán bộ BHXH và yêu cầu chuyển tiền',editorialStatus:'published',sources:[{title:'BHXH chính thức',url:'https://baohiemxahoi.gov.vn/tintuc',status:'accepted'}]};
 let calls=0;

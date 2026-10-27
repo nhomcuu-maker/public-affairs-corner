@@ -1,4 +1,6 @@
 ﻿'use strict';
+// Legacy model-mode regression only. Public server defaults to grounded-only mode.
+process.env.AI_ALLOW_UNVERIFIED_GENERAL='1';
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const ts=require('typescript');
 const root=path.resolve(__dirname,'..');

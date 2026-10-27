@@ -1,4 +1,6 @@
  'use strict';
+// Legacy model-mode regression only. Public server defaults to grounded-only mode.
+process.env.AI_ALLOW_UNVERIFIED_GENERAL='1';
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),ts=require('typescript');
 const root=path.resolve(__dirname,'..');
@@ -16,8 +18,15 @@ const search=load('src/search/search.logic.ts');
 const logic=load('src/assistant/assistant.logic.ts',{'../search/search.logic':search});
 const triage=load('src/assistant/assistant.triage.ts',{'../search/search.logic':search});
 const svcMod=load('src/assistant/assistant.service.ts',{
-  '@nestjs/common':{Injectable:()=>x=>x,Logger:class{warn(){}},ServiceUnavailableException:class extends Error{}},
-  '../search/search.service':{},'./assistant.logic':logic,'./assistant.triage':triage,
+  '@nestjs/common':{
+    Injectable:()=>x=>x,
+    Logger:class{warn(){} log(){} debug(){}},
+    ServiceUnavailableException:class extends Error{}
+  },
+  '../search/search.service':{},
+  './assistant.logic':logic,
+  './assistant.triage':triage,
+  './assistant.catalog':{catalogEvidence:()=>[]}
 });
 const old={...process.env},orig=global.fetch;
 process.env.AI_PROVIDER='ollama';process.env.AI_MODEL='llama3.2:3b';delete process.env.AI_BASE_URL;
